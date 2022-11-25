@@ -137,7 +137,7 @@
 	<haxelib name="hxCodec" if="VIDEOS_ALLOWED"/>
 	<haxelib name="faxe" if='switch'/>
 	<!--<haxelib name="polymod"/> -->
-	<haxelib name="discord_rpc" if="desktop || android"/>
+	<haxelib name="discord_rpc" if="desktop"/>
 	<!-- <haxelib name="hxcpp-debug-server" if="desktop"/> -->
         <haxelib name="extension-androidtools" if="android" />
 
@@ -189,7 +189,7 @@
 	<haxedef name="HXCPP_CHECK_POINTER" if="CRASH_HANDLER" />
 	<haxedef name="HXCPP_STACK_LINE" if="CRASH_HANDLER" />
 
-        	<!--Allow working memory greater than 1 Gig-->
+        <!--Allow working memory greater than 1 Gig-->
 	<haxedef name="HXCPP_GC_BIG_BLOCKS" />
 
 	<!--Always enable Null Object Reference check-->
