@@ -81,48 +81,11 @@ class MusicBeatState extends FlxUIState
 		if (virtualPad != null)
 			remove(virtualPad);
 	}
-
-	public function addHitbox(?visible = true):Void
-	{
-		if (hitbox != null)
-			removeHitbox();
-
-		hitbox = new FlxHitbox();
-		hitbox.visible = visible;
-		add(hitbox);
-
-		controls.setHitBox(hitbox);
-		trackedInputsHitbox = controls.trackedInputsNOTES;
-		controls.trackedInputsNOTES = [];
-	}
-
-	public function addHitboxCamera(DefaultDrawTarget:Bool = true):Void
-	{
-		if (hitbox != null)
-		{
-			var camControls:FlxCamera = new FlxCamera();
-			FlxG.cameras.add(camControls, DefaultDrawTarget);
-			camControls.bgColor.alpha = 0;
-			hitbox.cameras = [camControls];
-		}
-	}
-
-	public function removeHitbox():Void
-	{
-		if (trackedInputsHitbox.length > 0)
-			controls.removeVirtualControlsInput(trackedInputsHitbox);
-
-		if (hitbox != null)
-			remove(hitbox);
-	}
 	#end
 
 	override function destroy()
 	{
 		#if mobile
-		if (trackedInputsHitbox.length > 0)
-			controls.removeVirtualControlsInput(trackedInputsHitbox);
-
 		if (trackedInputsVirtualPad.length > 0)
 			controls.removeVirtualControlsInput(trackedInputsVirtualPad);
 		#end
@@ -132,9 +95,6 @@ class MusicBeatState extends FlxUIState
 		#if mobile
 		if (virtualPad != null)
 			virtualPad = FlxDestroyUtil.destroy(virtualPad);
-
-		if (hitbox != null)
-			hitbox = FlxDestroyUtil.destroy(hitbox);
 		#end
 	}
 
