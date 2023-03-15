@@ -126,10 +126,6 @@ class MusicBeatState extends FlxUIState
 
 		hitbox.visible = false;
 		add(hitbox);
-
-                controls.setHitBox(hitbox);
-		trackedInputsHitbox = controls.trackedInputsNOTES;
-		controls.trackedInputsNOTES = [];
 	}
 
 	public function removeVirtualPad():Void
