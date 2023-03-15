@@ -1221,7 +1221,7 @@ class PlayState extends MusicBeatState
 				curhitbox = FOUR;
 		}
 
-		_hitbox = new FlxHitbox(curhitbox)
+		_hitbox = new FlxHitbox(curhitbox);
 		_hitbox.cameras = [camHUD];
 
 		_hitbox.visible = false;
