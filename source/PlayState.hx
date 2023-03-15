@@ -4778,7 +4778,7 @@ class PlayState extends MusicBeatState
 				}
 			});
 			#if android	
-			if (keysArePressed() && !endingSong) {
+			if (hitboxKeysArePressed() && !endingSong) {
 				#if ACHIEVEMENTS_ALLOWED
 				var achieve:String = checkForAchievement(['oversinging']);
 				if (achieve != null) {
