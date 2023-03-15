@@ -44,18 +44,18 @@ class MusicBeatState extends FlxUIState
 
         #if mobile
 	var _hitbox:FlxHitbox;
-	var _virtualPad:FlxVirtualPad;
+	var virtualPad:FlxVirtualPad;
 	var trackedInputsHitbox:Array<FlxActionInput> = [];
 	var trackedInputsVirtualPad:Array<FlxActionInput> = [];
 
 	public function addVirtualPad(DPad:FlxDPadMode, Action:FlxActionMode, ?visible = true):Void
 	{
-		if (_virtualPad != null)
+		if (virtualPad != null)
 			removeVirtualPad();
 
-		_virtualPad = new FlxVirtualPad(DPad, Action);
-		_virtualPad.visible = visible;
-		add(_virtualPad);
+		virtualPad = new FlxVirtualPad(DPad, Action);
+		virtualPad.visible = visible;
+		add(virtualPad);
 
 		controls.setVirtualPadUI(virtualPad, DPad, Action);
 		trackedInputsVirtualPad = controls.trackedInputsUI;
@@ -64,12 +64,12 @@ class MusicBeatState extends FlxUIState
 
 	public function addVirtualPadCamera(DefaultDrawTarget:Bool = true):Void
 	{
-		if (_virtualPad != null)
+		if (virtualPad != null)
 		{
 			var camControls:FlxCamera = new FlxCamera();
 			FlxG.cameras.add(camControls, DefaultDrawTarget);
 			camControls.bgColor.alpha = 0;
-			_virtualPad.cameras = [camControls];
+			virtualPad.cameras = [camControls];
 		}
 	}
 
@@ -78,8 +78,8 @@ class MusicBeatState extends FlxUIState
 		if (trackedInputsVirtualPad.length > 0)
 			controls.removeVirtualControlsInput(trackedInputsVirtualPad);
 
-		if (_virtualPad != null)
-			remove(_virtualPad);
+		if (virtualPad != null)
+			remove(virtualPad);
 	}
         #end
 
@@ -93,8 +93,8 @@ class MusicBeatState extends FlxUIState
 		super.destroy();
 
 		#if mobile
-		if (_virtualPad != null)
-			_virtualPad = FlxDestroyUtil.destroy(_virtualPad);
+		if (virtualPad != null)
+			virtualPad = FlxDestroyUtil.destroy(virtualPad);
 		#end
 	}
 
