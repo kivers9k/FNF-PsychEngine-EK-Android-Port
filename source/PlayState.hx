@@ -1177,6 +1177,10 @@ class PlayState extends MusicBeatState
 		timeTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
 
+                #if android
+                addHitbox(mania);
+                #end
+
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
 		// UI_camera.zoom = 1;
@@ -2115,6 +2119,9 @@ class PlayState extends MusicBeatState
 		inCutscene = false;
 		var ret:Dynamic = callOnLuas('onStartCountdown', [], false);
 		if(ret != FunkinLua.Function_Stop) {
+                        #if android
+			hitbox.visible = true;
+                        #end
 			if (skipCountdown || startOnTime > 0) skipArrowStartTween = true;
 
 			generateStaticArrows(0);
@@ -2873,6 +2880,12 @@ class PlayState extends MusicBeatState
 		var daOldMania = mania;
 				
 		mania = newValue;
+
+                #if android
+                remove(hitbox);
+                addHitbox(mania);
+                        hitbox.visible = true;
+                #end
 		if (!skipStrumFadeOut) {
 			for (i in 0...strumLineNotes.members.length) {
 				var oldStrum:FlxSprite = strumLineNotes.members[i].clone();
@@ -3222,7 +3235,7 @@ class PlayState extends MusicBeatState
 			botplayTxt.alpha = 1 - Math.sin((Math.PI * botplaySine) / 180);
 		}
 
-		if (controls.PAUSE && startedCountdown && canPause)
+		if (controls.PAUSE #if android || FlxG.android.justReleased.BACK #end && startedCountdown && canPause)
 		{
 			var ret:Dynamic = callOnLuas('onPause', [], false);
 			if(ret != FunkinLua.Function_Stop) {
@@ -4125,6 +4138,10 @@ class PlayState extends MusicBeatState
 				return;
 			}
 		}
+
+                #if android
+		hitbox.visible = false;
+                #end
 
 		timeBarBG.visible = false;
 		timeBar.visible = false;
