@@ -9,6 +9,7 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
+import android.flixel.FlxVirtualPad;
 
 class GameOverSubstate extends MusicBeatSubstate
 {
