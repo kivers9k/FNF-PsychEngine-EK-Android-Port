@@ -136,6 +136,7 @@ class MusicBeatState extends FlxUIState
 		if (virtualPad != null)
 			remove(virtualPad);
 	}
+        #end
 
 	override function destroy()
 	{
