@@ -43,7 +43,7 @@ class MusicBeatState extends FlxUIState
 		return PlayerSettings.player1.controls;
 
         #if mobile
-	var hitbox:FlxHitbox;
+	var _hitbox:FlxHitbox;
 	var virtualPad:FlxVirtualPad;
 	var trackedInputsHitbox:Array<FlxActionInput> = [];
 	var trackedInputsVirtualPad:Array<FlxActionInput> = [];
