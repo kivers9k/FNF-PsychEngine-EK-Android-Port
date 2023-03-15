@@ -73,6 +73,65 @@ class MusicBeatState extends FlxUIState
 		}
 	}
 
+        public function addHitbox(mania:Int) {               
+		var curhitbox:HitboxType = FOUR;
+
+		switch (mania){
+			case 0:
+				curhitbox = ONE;
+			case 1:
+				curhitbox = TWO;
+			case 2:
+				curhitbox = THREE;					
+			case 3:
+				curhitbox = FOUR;	
+			case 4:
+				curhitbox = FIVE;
+			case 5:
+				curhitbox = SIX;
+			case 6:
+				curhitbox = SEVEN;
+			case 7:
+				curhitbox = EIGHT;
+			case 8:
+				curhitbox = NINE;
+			case 9:
+				curhitbox = TEN;
+		        case 10:
+				curhitbox = ELEVEN;
+                        case 11:
+                                curhitbox = TWELVE;
+                        case 12:
+                                curhitbox = THIRTEEN;
+                        case 13:
+                                curhitbox = FOURTEEN;
+                        case 14:
+                                curhitbox= FIFTEEN;
+                        case 15:
+                                curhitbox = SIXTEEN;
+                        case 16:
+                                curhitbox= SEVENTEEN;
+                        case 17:
+                                curhitbox = EIGHTEEN;									
+			default:
+				curhitbox = FOUR;
+		}
+
+		_hitbox = new FlxHitbox(curhitbox, 0.75, ClientPrefs.globalAntialiasing);
+
+		var camcontrol = new flixel.FlxCamera();
+		FlxG.cameras.add(camcontrol);
+		camcontrol.bgColor.alpha = 0;
+		_hitbox.cameras = [camcontrol];
+
+		_hitbox.visible = false;
+		add(_hitbox);
+
+                controls.setHitBox(hitbox);
+		trackedInputsHitbox = controls.trackedInputsNOTES;
+		controls.trackedInputsNOTES = [];
+	}
+
 	public function removeVirtualPad():Void
 	{
 		if (trackedInputsVirtualPad.length > 0)
@@ -81,11 +140,23 @@ class MusicBeatState extends FlxUIState
 		if (virtualPad != null)
 			remove(virtualPad);
 	}
-	#end
+
+        public function removeHitbox():Void
+	{
+		if (trackedInputsHitbox.length > 0)
+			controls.removeVirtualControlsInput(trackedInputsHitbox);
+
+		if (hitbox != null)
+			remove(hitbox);
+	}
+        #end
 
 	override function destroy()
 	{
 		#if mobile
+                if (trackedInputsHitbox.length > 0)
+			controls.removeVirtualControlsInput(trackedInputsHitbox);
+
 		if (trackedInputsVirtualPad.length > 0)
 			controls.removeVirtualControlsInput(trackedInputsVirtualPad);
 		#end
@@ -93,6 +164,9 @@ class MusicBeatState extends FlxUIState
 		super.destroy();
 
 		#if mobile
+                if (hitbox != null)
+			hitbox = FlxDestroyUtil.destroy(hitbox);
+
 		if (virtualPad != null)
 			virtualPad = FlxDestroyUtil.destroy(virtualPad);
 		#end
