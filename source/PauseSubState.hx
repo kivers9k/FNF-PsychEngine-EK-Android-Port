@@ -137,7 +137,7 @@ class PauseSubState extends MusicBeatSubstate
 
                 #if android
                 addVirtualPad(UP_DOWN, A);
-                _virtualpad.cameras = [PlayState.instance.camHUD];
+                virtualPad.cameras = [PlayState.instance.camHUD];
                 #end
 	}
 
