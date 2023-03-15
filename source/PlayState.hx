@@ -1177,60 +1177,55 @@ class PlayState extends MusicBeatState
 		timeBarBG.cameras = [camHUD];
 		timeTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
-	
-                public function addHitbox(mania:Int) 
-	        {
-			var curhitbox:HitboxType = FOUR;
 
-			switch (mania){
-				case 0:
-					curhitbox = ONE;
-				case 1:
-					curhitbox = TWO;
-				case 2:
-					curhitbox = THREE;					
-				case 3:
-					curhitbox = FOUR;	
-				case 4:
-					curhitbox = FIVE;
-				case 5:
-					curhitbox = SIX;
-				case 6:
-					curhitbox = SEVEN;
-				case 7:
-					curhitbox = EIGHT;
-				case 8:
-					curhitbox = NINE;
-				case 9:
-					curhitbox = TEN;
-				case 10:
-					curhitbox = ELEVEN;
-				case 11:
-					curhitbox = TWELVE;
-				case 12:
-					curhitbox = THIRTEEN;
-				case 13:
-					curhitbox = FOURTEEN;
-				case 14:
-					curhitbox= FIFTEEN;
-				case 15:
-					curhitbox = SIXTEEN;
-				case 16:
-					curhitbox= SEVENTEEN;
-				case 17:
-					curhitbox = EIGHTEEN;									
-				default:
-					curhitbox = FOUR;
-			}
+		var curhitbox:HitboxType = FOUR;
 
-			_hitbox = new FlxHitbox(curhitbox)
-			_hitbox.cameras = [camHUD];
-
-			_hitbox.visible = false;
-			add(_hitbox);
+		switch (mania){
+			case 0:
+				curhitbox = ONE;
+			case 1:
+				curhitbox = TWO;
+			case 2:
+				curhitbox = THREE;					
+			case 3:
+				curhitbox = FOUR;	
+			case 4:
+				curhitbox = FIVE;
+			case 5:
+				curhitbox = SIX;
+			case 6:
+				curhitbox = SEVEN;
+			case 7:
+				curhitbox = EIGHT;
+			case 8:
+				curhitbox = NINE;
+			case 9:
+				curhitbox = TEN;
+			case 10:
+				curhitbox = ELEVEN;
+			case 11:
+				curhitbox = TWELVE;
+			case 12:
+				curhitbox = THIRTEEN;
+			case 13:
+				curhitbox = FOURTEEN;
+			case 14:
+				curhitbox= FIFTEEN;
+			case 15:
+				curhitbox = SIXTEEN;
+			case 16:
+				curhitbox= SEVENTEEN;
+			case 17:
+				curhitbox = EIGHTEEN;									
+			default:
+				curhitbox = FOUR;
 		}
-	        
-	        addHitbox(mania);
+
+		_hitbox = new FlxHitbox(curhitbox)
+		_hitbox.cameras = [camHUD];
+
+		_hitbox.visible = false;
+		add(_hitbox);
 
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
@@ -2934,8 +2929,8 @@ class PlayState extends MusicBeatState
 
                 #if android
                 remove(_hitbox);
-                addHitbox(mania);
-                _hitbox.visible = true;
+		add(_hitbox);
+		_hitbox.visible = true;
                 #end
 		if (!skipStrumFadeOut) {
 			for (i in 0...strumLineNotes.members.length) {
