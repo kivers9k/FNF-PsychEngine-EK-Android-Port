@@ -61,6 +61,7 @@ import StageData;
 import FunkinLua;
 import DialogueBoxPsych;
 import Conductor.Rating;
+import android.flixel.FlxHitbox;
 
 #if !flash 
 import flixel.addons.display.FlxRuntimeShader;
@@ -1176,10 +1177,59 @@ class PlayState extends MusicBeatState
 		timeBarBG.cameras = [camHUD];
 		timeTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
+	
+                public function addHitbox(mania:Int) {
+		var curhitbox:HitboxType = FOUR;
 
-                #if android
-                addHitbox(mania);
-                #end
+		switch (mania){
+			case 0:
+				curhitbox = ONE;
+			case 1:
+				curhitbox = TWO;
+			case 2:
+				curhitbox = THREE;					
+			case 3:
+				curhitbox = FOUR;	
+			case 4:
+				curhitbox = FIVE;
+			case 5:
+				curhitbox = SIX;
+			case 6:
+				curhitbox = SEVEN;
+			case 7:
+				curhitbox = EIGHT;
+			case 8:
+				curhitbox = NINE;
+			case 9:
+				curhitbox = TEN;
+		        case 10:
+				curhitbox = ELEVEN;
+                        case 11:
+                                curhitbox = TWELVE;
+                        case 12:
+                                curhitbox = THIRTEEN;
+                        case 13:
+                                curhitbox = FOURTEEN;
+                        case 14:
+                                curhitbox= FIFTEEN;
+                        case 15:
+                                curhitbox = SIXTEEN;
+                        case 16:
+                                curhitbox= SEVENTEEN;
+                        case 17:
+                                curhitbox = EIGHTEEN;									
+			default:
+				curhitbox = FOUR;
+		}
+
+		_hitbox = new FlxHitbox(curhitbox)
+		_hitbox.cameras = [camHUD];
+
+		_hitbox.visible = false;
+		add(_hitbox);
+		}
+	        
+	        addHitbox(mania);
 
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
@@ -2120,7 +2170,7 @@ class PlayState extends MusicBeatState
 		var ret:Dynamic = callOnLuas('onStartCountdown', [], false);
 		if(ret != FunkinLua.Function_Stop) {
                         #if android
-			hitbox.visible = true;
+			_hitbox.visible = true;
                         #end
 			if (skipCountdown || startOnTime > 0) skipArrowStartTween = true;
 
@@ -2882,9 +2932,9 @@ class PlayState extends MusicBeatState
 		mania = newValue;
 
                 #if android
-                remove(hitbox);
+                remove(_hitbox);
                 addHitbox(mania);
-                        hitbox.visible = true;
+                _hitbox.visible = true;
                 #end
 		if (!skipStrumFadeOut) {
 			for (i in 0...strumLineNotes.members.length) {
@@ -4140,7 +4190,7 @@ class PlayState extends MusicBeatState
 		}
 
                 #if android
-		hitbox.visible = false;
+		_hitbox.visible = false;
                 #end
 
 		timeBarBG.visible = false;
@@ -4683,8 +4733,36 @@ class PlayState extends MusicBeatState
 		return false;
 	}
 
+        #if android
+	private function hitboxKeysArePressed():Bool
+	{
+	        if (_hitbox.array[mania].pressed) 
+                {
+			return true;
+		}
+		return false;
+	}
+
+	private function hitboxDataKeyIsPressed(data:Int):Bool
+	{
+		if (_hitbox.array[data].pressed) 
+                {
+                        return true;
+                }
+		return false;
+	}
+        #end
+
 	private function keyShit():Void
 	{
+		#if android
+		        for (i in 0..._hitbox.array.length) {
+			        if (_hitbox.array[i].justPressed)
+			        {
+				       onKeyPress(new KeyboardEvent(KeyboardEvent.KEY_DOWN, true, true, -1, keysArray[mania][i][0]));
+			        }
+		        }
+		#end
 		// FlxG.watch.addQuick('asdfa', upP);
 		if (startedCountdown && !boyfriend.stunned && generatedMusic)
 		{
@@ -4692,12 +4770,18 @@ class PlayState extends MusicBeatState
 			notes.forEachAlive(function(daNote:Note)
 			{
 				// hold note functions
+				#if android
+				if (strumsBlocked[daNote.noteData] != true && daNote.isSustainNote && hitboxDataKeyIsPressed(daNote.noteData % Note.ammo[mania]) && daNote.canBeHit
+				&& daNote.mustPress && !daNote.tooLate && !daNote.wasGoodHit && !daNote.blockHit) {
+					goodNoteHit(daNote);
+				#else
 				if (strumsBlocked[daNote.noteData] != true && daNote.isSustainNote && dataKeyIsPressed(daNote.noteData % Note.ammo[mania]) && daNote.canBeHit
 				&& daNote.mustPress && !daNote.tooLate && !daNote.wasGoodHit && !daNote.blockHit) {
 					goodNoteHit(daNote);
+				#end
 				}
 			});
-
+			#if android	
 			if (keysArePressed() && !endingSong) {
 				#if ACHIEVEMENTS_ALLOWED
 				var achieve:String = checkForAchievement(['oversinging']);
@@ -4711,6 +4795,30 @@ class PlayState extends MusicBeatState
 				boyfriend.dance();
 				//boyfriend.animation.curAnim.finish();
 			}
+                        #else
+			if (keysArePressed() && !endingSong) {
+				#if ACHIEVEMENTS_ALLOWED
+				var achieve:String = checkForAchievement(['oversinging']);
+				if (achieve != null) {
+					startAchievement(achieve);
+				}
+				#end
+			}
+			else if (boyfriend.animation.curAnim != null && boyfriend.holdTimer > Conductor.stepCrochet * (0.0011 / FlxG.sound.music.pitch) * boyfriend.singDuration && boyfriend.animation.curAnim.name.startsWith('sing') && !boyfriend.animation.curAnim.name.endsWith('miss'))
+			{
+				boyfriend.dance();
+				//boyfriend.animation.curAnim.finish();
+			}
+			#end
+				
+			#if android
+		        for (i in 0..._hitbox.array.length) {
+			        if (_hitbox.array[i].justReleased)
+			        {
+				       onKeyRelease(new KeyboardEvent(KeyboardEvent.KEY_UP, true, true, -1, keysArray[mania][i][0]));
+			        }
+		        }
+		        #end
 		}
 	}
 
