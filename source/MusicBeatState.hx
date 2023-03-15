@@ -117,15 +117,15 @@ class MusicBeatState extends FlxUIState
 				curhitbox = FOUR;
 		}
 
-		_hitbox = new FlxHitbox(curhitbox, 0.75, ClientPrefs.globalAntialiasing);
+		hitbox = new FlxHitbox(curhitbox, 0.75, ClientPrefs.globalAntialiasing);
 
 		var camcontrol = new flixel.FlxCamera();
 		FlxG.cameras.add(camcontrol);
 		camcontrol.bgColor.alpha = 0;
-		_hitbox.cameras = [camcontrol];
+		hitbox.cameras = [camcontrol];
 
-		_hitbox.visible = false;
-		add(_hitbox);
+		hitbox.visible = false;
+		add(hitbox);
 
                 controls.setHitBox(hitbox);
 		trackedInputsHitbox = controls.trackedInputsNOTES;
