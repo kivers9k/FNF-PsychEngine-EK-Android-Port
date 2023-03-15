@@ -1178,7 +1178,8 @@ class PlayState extends MusicBeatState
 		timeTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
 	
-                public function addHitbox(mania:Int) {
+                public function addHitbox(mania:Int) 
+	        {
 			var curhitbox:HitboxType = FOUR;
 
 			switch (mania){
