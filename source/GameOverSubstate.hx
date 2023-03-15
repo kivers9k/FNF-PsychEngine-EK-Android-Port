@@ -73,7 +73,7 @@ class GameOverSubstate extends MusicBeatSubstate
 
                 #if android
                 addVirtualPad(NONE, A_B);
-                virtualpad.cameras = [PlayState.instance.camHUD];
+                _virtualpad.cameras = [PlayState.instance.camHUD];
                 #end
 	}
 
