@@ -137,22 +137,9 @@ class MusicBeatState extends FlxUIState
 			remove(virtualPad);
 	}
 
-        public function removeHitbox():Void
-	{
-		if (trackedInputsHitbox.length > 0)
-			controls.removeVirtualControlsInput(trackedInputsHitbox);
-
-		if (hitbox != null)
-			remove(hitbox);
-	}
-        #end
-
 	override function destroy()
 	{
 		#if mobile
-                if (trackedInputsHitbox.length > 0)
-			controls.removeVirtualControlsInput(trackedInputsHitbox);
-
 		if (trackedInputsVirtualPad.length > 0)
 			controls.removeVirtualControlsInput(trackedInputsVirtualPad);
 		#end
@@ -160,9 +147,6 @@ class MusicBeatState extends FlxUIState
 		super.destroy();
 
 		#if mobile
-                if (hitbox != null)
-			hitbox = FlxDestroyUtil.destroy(hitbox);
-
 		if (virtualPad != null)
 			virtualPad = FlxDestroyUtil.destroy(virtualPad);
 		#end
