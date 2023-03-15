@@ -1179,54 +1179,54 @@ class PlayState extends MusicBeatState
 		doof.cameras = [camHUD];
 	
                 public function addHitbox(mania:Int) {
-		var curhitbox:HitboxType = FOUR;
+			var curhitbox:HitboxType = FOUR;
 
-		switch (mania){
-			case 0:
-				curhitbox = ONE;
-			case 1:
-				curhitbox = TWO;
-			case 2:
-				curhitbox = THREE;					
-			case 3:
-				curhitbox = FOUR;	
-			case 4:
-				curhitbox = FIVE;
-			case 5:
-				curhitbox = SIX;
-			case 6:
-				curhitbox = SEVEN;
-			case 7:
-				curhitbox = EIGHT;
-			case 8:
-				curhitbox = NINE;
-			case 9:
-				curhitbox = TEN;
-		        case 10:
-				curhitbox = ELEVEN;
-                        case 11:
-                                curhitbox = TWELVE;
-                        case 12:
-                                curhitbox = THIRTEEN;
-                        case 13:
-                                curhitbox = FOURTEEN;
-                        case 14:
-                                curhitbox= FIFTEEN;
-                        case 15:
-                                curhitbox = SIXTEEN;
-                        case 16:
-                                curhitbox= SEVENTEEN;
-                        case 17:
-                                curhitbox = EIGHTEEN;									
-			default:
-				curhitbox = FOUR;
-		}
+			switch (mania){
+				case 0:
+					curhitbox = ONE;
+				case 1:
+					curhitbox = TWO;
+				case 2:
+					curhitbox = THREE;					
+				case 3:
+					curhitbox = FOUR;	
+				case 4:
+					curhitbox = FIVE;
+				case 5:
+					curhitbox = SIX;
+				case 6:
+					curhitbox = SEVEN;
+				case 7:
+					curhitbox = EIGHT;
+				case 8:
+					curhitbox = NINE;
+				case 9:
+					curhitbox = TEN;
+				case 10:
+					curhitbox = ELEVEN;
+				case 11:
+					curhitbox = TWELVE;
+				case 12:
+					curhitbox = THIRTEEN;
+				case 13:
+					curhitbox = FOURTEEN;
+				case 14:
+					curhitbox= FIFTEEN;
+				case 15:
+					curhitbox = SIXTEEN;
+				case 16:
+					curhitbox= SEVENTEEN;
+				case 17:
+					curhitbox = EIGHTEEN;									
+				default:
+					curhitbox = FOUR;
+			}
 
-		_hitbox = new FlxHitbox(curhitbox)
-		_hitbox.cameras = [camHUD];
+			_hitbox = new FlxHitbox(curhitbox)
+			_hitbox.cameras = [camHUD];
 
-		_hitbox.visible = false;
-		add(_hitbox);
+			_hitbox.visible = false;
+			add(_hitbox);
 		}
 	        
 	        addHitbox(mania);
