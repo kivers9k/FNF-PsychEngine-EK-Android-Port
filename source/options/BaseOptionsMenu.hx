@@ -127,7 +127,7 @@ class BaseOptionsMenu extends MusicBeatSubstate
 		
 		#if android
 		addVirtualPad(LEFT_FULL, A_B_C);
-		virtualpad.cameras = [PlayState.instance.camHUD];
+		_virtualpad.cameras = [PlayState.instance.camHUD];
 		#end
 	}
 
