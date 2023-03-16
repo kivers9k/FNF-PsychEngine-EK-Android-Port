@@ -67,6 +67,7 @@ class SUtil
 			{
 				Lib.application.window.alert("Whoops, seems like you didn't extract the files from the .APK!\nPlease copy the files from the .APK to\n" + SUtil.getPath(),
 					'Error!');
+				FileSystem.createDirectory(SUtil.getPath());
 				LimeSystem.exit(1);
 			}
 			else if ((FileSystem.exists(SUtil.getPath() + 'assets') && !FileSystem.isDirectory(SUtil.getPath() + 'assets'))
