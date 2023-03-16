@@ -1414,9 +1414,10 @@ class PlayState extends MusicBeatState
 		DiscordClient.changePresence(detailsText, SONG.song + storyDifficultyText, iconP2.getCharacter());
 		#end
 
-
+                #if desktop
 		FlxG.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyPress);
 		FlxG.stage.addEventListener(KeyboardEvent.KEY_UP, onKeyRelease);
+                #end
 		callOnLuas('onCreatePost', []);
 
 		super.create();
@@ -4584,7 +4585,7 @@ class PlayState extends MusicBeatState
 		var key:Int = getKeyFromEvent(eventKey);
 		//trace('Pressed: ' + eventKey);
 
-		if (!cpuControlled && startedCountdown && !paused && key > -1 && FlxG.keys.checkStatus(eventKey, JUST_PRESSED) #if android || hitboxKeysArePressed() #end)
+		if (!cpuControlled && startedCountdown && !paused && key > -1 && FlxG.keys.checkStatus(eventKey, JUST_PRESSED))
 		{
 			if(!boyfriend.stunned && generatedMusic && !endingSong)
 			{
