@@ -71,7 +71,6 @@ class ResetScoreSubState extends MusicBeatSubstate
 		updateOptions();
 		#if android
 		addVirtualPad(LEFT_RIGHT, A_B);
-		virtualPad.cameras = [PlayState.instance.camHUD];
 		#end
 	}
 
