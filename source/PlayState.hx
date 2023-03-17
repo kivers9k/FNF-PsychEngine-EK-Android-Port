@@ -1414,10 +1414,8 @@ class PlayState extends MusicBeatState
 		DiscordClient.changePresence(detailsText, SONG.song + storyDifficultyText, iconP2.getCharacter());
 		#end
 
-                #if desktop
 		FlxG.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyPress);
 		FlxG.stage.addEventListener(KeyboardEvent.KEY_UP, onKeyRelease);
-                #end
 		callOnLuas('onCreatePost', []);
 
 		super.create();
@@ -4753,14 +4751,12 @@ class PlayState extends MusicBeatState
 	private function keyShit():Void
 	{
 
-		#if android
 		for (i in 0..._hitbox.array.length) {
 			if (_hitbox.array[i].justPressed)
 			{
 			       onKeyPress(new KeyboardEvent(KeyboardEvent.KEY_DOWN, true, true, -1, keysArray[mania][i][0]));
 			}
 		}
-		#end
 		// FlxG.watch.addQuick('asdfa', upP);
 		if (startedCountdown && !boyfriend.stunned && generatedMusic)
 		{
@@ -4793,14 +4789,12 @@ class PlayState extends MusicBeatState
 				//boyfriend.animation.curAnim.finish();
 			}
 				
-			#if android
 		        for (i in 0..._hitbox.array.length) {
 			        if (_hitbox.array[i].justReleased)
 			        {
 				       onKeyRelease(new KeyboardEvent(KeyboardEvent.KEY_UP, true, true, -1, keysArray[mania][i][0]));
 			        }
 		        }
-		        #end
 		}
 	}
 
