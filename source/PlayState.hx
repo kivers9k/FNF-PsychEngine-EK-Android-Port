@@ -4751,12 +4751,6 @@ class PlayState extends MusicBeatState
 	private function keyShit():Void
 	{
 
-		for (i in 0..._hitbox.array.length) {
-			if (_hitbox.array[i].justPressed)
-			{
-			       onKeyPress(new KeyboardEvent(KeyboardEvent.KEY_DOWN, true, true, -1, keysArray[mania][i][0]));
-			}
-		}
 		// FlxG.watch.addQuick('asdfa', upP);
 		if (startedCountdown && !boyfriend.stunned && generatedMusic)
 		{
@@ -4789,12 +4783,6 @@ class PlayState extends MusicBeatState
 				//boyfriend.animation.curAnim.finish();
 			}
 				
-		        for (i in 0..._hitbox.array.length) {
-			        if (_hitbox.array[i].justReleased)
-			        {
-				       onKeyRelease(new KeyboardEvent(KeyboardEvent.KEY_UP, true, true, -1, keysArray[mania][i][0]));
-			        }
-		        }
 		}
 	}
 
