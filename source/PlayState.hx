@@ -4583,7 +4583,7 @@ class PlayState extends MusicBeatState
 		var key:Int = getKeyFromEvent(eventKey);
 		//trace('Pressed: ' + eventKey);
 
-		if (!cpuControlled && startedCountdown && !paused && key > -1 && FlxG.keys.checkStatus(eventKey, JUST_PRESSED) #if android || hitboxDataKeyJustPressed(daNote.noteData % Note.ammo[mania]) #end)
+		if (!cpuControlled && startedCountdown && !paused && key > -1 && FlxG.keys.checkStatus(eventKey, JUST_PRESSED))
 		{
 			if(!boyfriend.stunned && generatedMusic && !endingSong)
 			{
@@ -4758,7 +4758,6 @@ class PlayState extends MusicBeatState
 
 	private function keyShit():Void
 	{
-
 		for (i in 0..._hitbox.array.length) {
 			if (_hitbox.array[i].justPressed)
 			{
@@ -4796,14 +4795,13 @@ class PlayState extends MusicBeatState
 				boyfriend.dance();
 				//boyfriend.animation.curAnim.finish();
 			}
-				
-		        for (i in 0..._hitbox.array.length) {
-			        if (_hitbox.array[i].justReleased)
-			        {
-				       onKeyRelease(new KeyboardEvent(KeyboardEvent.KEY_UP, true, true, -1, keysArray[mania][i][0]));
-			        }
-		        }
+		
 		}
+		for (i in 0..._hitbox.array.length) {
+			if (_hitbox.array[i].justReleased)
+			{
+			       onKeyRelease(new KeyboardEvent(KeyboardEvent.KEY_UP, true, true, -1, keysArray[mania][i][0]));
+			}
 	}
 
 	function noteMiss(daNote:Note):Void { //You didn't hit the key and let it go offscreen, also used by Hurt Notes
