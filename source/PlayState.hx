@@ -4746,18 +4746,11 @@ class PlayState extends MusicBeatState
                 }
 		return false;
 	}
-        private function hitboxDataKeyJustPressed(data:Int):Bool
-	{
-		if (_hitbox.array[data].justPressed) 
-                {
-                        return true;
-                }
-		return false;
-	}
         #end
 
 	private function keyShit():Void
 	{
+
 		for (i in 0..._hitbox.array.length) {
 			if (_hitbox.array[i].justPressed)
 			{
@@ -4795,13 +4788,13 @@ class PlayState extends MusicBeatState
 				boyfriend.dance();
 				//boyfriend.animation.curAnim.finish();
 			}
-		
 		}
-		for (i in 0..._hitbox.array.length) {
+                for (i in 0..._hitbox.array.length) {
 			if (_hitbox.array[i].justReleased)
 			{
 			       onKeyRelease(new KeyboardEvent(KeyboardEvent.KEY_UP, true, true, -1, keysArray[mania][i][0]));
 			}
+		}
 	}
 
 	function noteMiss(daNote:Note):Void { //You didn't hit the key and let it go offscreen, also used by Hurt Notes
