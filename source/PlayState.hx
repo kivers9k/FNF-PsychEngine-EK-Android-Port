@@ -4583,7 +4583,7 @@ class PlayState extends MusicBeatState
 		var key:Int = getKeyFromEvent(eventKey);
 		//trace('Pressed: ' + eventKey);
 
-		if (!cpuControlled && startedCountdown && !paused && key > -1 && FlxG.keys.checkStatus(eventKey, JUST_PRESSED) #if android || hitboxDataKeyJustPressed(Note.noteData % Note.ammo[mania]) #end)
+		if (!cpuControlled && startedCountdown && !paused && key > -1 && FlxG.keys.checkStatus(eventKey, JUST_PRESSED) #if android || hitboxDataKeyJustPressed(Note.instance.noteData % Note.ammo[mania]) #end)
 		{
 			if(!boyfriend.stunned && generatedMusic && !endingSong)
 			{
