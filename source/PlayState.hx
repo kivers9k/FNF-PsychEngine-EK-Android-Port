@@ -4746,6 +4746,15 @@ class PlayState extends MusicBeatState
                 }
 		return false;
 	}
+
+        private function hitboxDataKeyJustPressed(data:Int):Bool
+	{
+		if (_hitbox.array[data].justPressed) 
+                {
+                        return true;
+                }
+		return false;
+	}
         #end
 
 	private function keyShit():Void
