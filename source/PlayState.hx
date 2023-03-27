@@ -1177,55 +1177,60 @@ class PlayState extends MusicBeatState
 		timeBarBG.cameras = [camHUD];
 		timeTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
+	
+	        if(!ClientPrefs.keyboardMode)
+		{
+			#if android
+			var curhitbox:HitboxType = FOUR;
 
-		var curhitbox:HitboxType = FOUR;
+			switch (mania){
+				case 0:
+					curhitbox = ONE;
+				case 1:
+					curhitbox = TWO;
+				case 2:
+					curhitbox = THREE;					
+				case 3:
+					curhitbox = FOUR;	
+				case 4:
+					curhitbox = FIVE;
+				case 5:
+					curhitbox = SIX;
+				case 6:
+					curhitbox = SEVEN;
+				case 7:
+					curhitbox = EIGHT;
+				case 8:
+					curhitbox = NINE;
+				case 9:
+					curhitbox = TEN;
+				case 10:
+					curhitbox = ELEVEN;
+				case 11:
+					curhitbox = TWELVE;
+				case 12:
+					curhitbox = THIRTEEN;
+				case 13:
+					curhitbox = FOURTEEN;
+				case 14:
+					curhitbox= FIFTEEN;
+				case 15:
+					curhitbox = SIXTEEN;
+				case 16:
+					curhitbox= SEVENTEEN;
+				case 17:
+					curhitbox = EIGHTEEN;									
+				default:
+					curhitbox = FOUR;
+			}
 
-		switch (mania){
-			case 0:
-				curhitbox = ONE;
-			case 1:
-				curhitbox = TWO;
-			case 2:
-				curhitbox = THREE;					
-			case 3:
-				curhitbox = FOUR;	
-			case 4:
-				curhitbox = FIVE;
-			case 5:
-				curhitbox = SIX;
-			case 6:
-				curhitbox = SEVEN;
-			case 7:
-				curhitbox = EIGHT;
-			case 8:
-				curhitbox = NINE;
-			case 9:
-				curhitbox = TEN;
-			case 10:
-				curhitbox = ELEVEN;
-			case 11:
-				curhitbox = TWELVE;
-			case 12:
-				curhitbox = THIRTEEN;
-			case 13:
-				curhitbox = FOURTEEN;
-			case 14:
-				curhitbox= FIFTEEN;
-			case 15:
-				curhitbox = SIXTEEN;
-			case 16:
-				curhitbox= SEVENTEEN;
-			case 17:
-				curhitbox = EIGHTEEN;									
-			default:
-				curhitbox = FOUR;
+			_hitbox = new FlxHitbox(curhitbox);
+			_hitbox.cameras = [camHUD];
+
+			_hitbox.visible = false;
+			add(_hitbox);
+			#end
 		}
-
-		_hitbox = new FlxHitbox(curhitbox);
-		_hitbox.cameras = [camHUD];
-
-		_hitbox.visible = false;
-		add(_hitbox);
 
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
@@ -1413,9 +1418,11 @@ class PlayState extends MusicBeatState
 		// Updating Discord Rich Presence.
 		DiscordClient.changePresence(detailsText, SONG.song + storyDifficultyText, iconP2.getCharacter());
 		#end
-
-		FlxG.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyPress);
-		FlxG.stage.addEventListener(KeyboardEvent.KEY_UP, onKeyRelease);
+                if(ClientPrefs.keyboardMode)
+		{
+			FlxG.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyPress);
+			FlxG.stage.addEventListener(KeyboardEvent.KEY_UP, onKeyRelease);
+		}
 		callOnLuas('onCreatePost', []);
 
 		super.create();
@@ -2164,9 +2171,12 @@ class PlayState extends MusicBeatState
 		inCutscene = false;
 		var ret:Dynamic = callOnLuas('onStartCountdown', [], false);
 		if(ret != FunkinLua.Function_Stop) {
-                        #if android
-			_hitbox.visible = true;
-                        #end
+			if(!ClientPrefs.keyboardMode)
+		        {
+				#if android
+				_hitbox.visible = true;
+				#end
+			}
 			if (skipCountdown || startOnTime > 0) skipArrowStartTween = true;
 
 			generateStaticArrows(0);
@@ -2925,12 +2935,15 @@ class PlayState extends MusicBeatState
 		var daOldMania = mania;
 				
 		mania = newValue;
-
-                #if android
-                remove(_hitbox);
-		add(_hitbox);
-		_hitbox.visible = true;
-                #end
+		
+		if(!ClientPrefs.keyboardMode)
+		{
+			#if android
+			remove(_hitbox);
+			add(_hitbox);
+			_hitbox.visible = true;
+			#end
+		}
 		if (!skipStrumFadeOut) {
 			for (i in 0...strumLineNotes.members.length) {
 				var oldStrum:FlxSprite = strumLineNotes.members[i].clone();
@@ -4183,10 +4196,12 @@ class PlayState extends MusicBeatState
 				return;
 			}
 		}
-
-                #if android
-		_hitbox.visible = false;
-                #end
+                if(!ClientPrefs.keyboardMode)
+		{
+			#if android
+			_hitbox.visible = false;
+			#end
+		}
 
 		timeBarBG.visible = false;
 		timeBar.visible = false;
@@ -4583,7 +4598,7 @@ class PlayState extends MusicBeatState
 		var key:Int = getKeyFromEvent(eventKey);
 		//trace('Pressed: ' + eventKey);
 
-		if (!cpuControlled && startedCountdown && !paused && key > -1 && FlxG.keys.checkStatus(eventKey, JUST_PRESSED))
+		if (!cpuControlled && startedCountdown && !paused && key > -1 && (FlxG.keys.checkStatus(eventKey, JUST_PRESSED) || !ClientPrefs.keyboardMode))
 		{
 			if(!boyfriend.stunned && generatedMusic && !endingSong)
 			{
@@ -4759,12 +4774,16 @@ class PlayState extends MusicBeatState
 
 	private function keyShit():Void
 	{
-
-		for (i in 0..._hitbox.array.length) {
-			if (_hitbox.array[i].justPressed)
-			{
-			       onKeyPress(new KeyboardEvent(KeyboardEvent.KEY_DOWN, true, true, -1, keysArray[mania][i][0]));
+		if(!ClientPrefs.keyboardMode)
+		{
+			#if android
+			for (i in 0..._hitbox.array.length) {
+				if (_hitbox.array[i].justPressed)
+				{
+				       onKeyPress(new KeyboardEvent(KeyboardEvent.KEY_DOWN, true, true, -1, keysArray[mania][i][0]));
+				}
 			}
+			#end
 		}
 		// FlxG.watch.addQuick('asdfa', upP);
 		if (startedCountdown && !boyfriend.stunned && generatedMusic)
@@ -4772,37 +4791,69 @@ class PlayState extends MusicBeatState
 			// rewritten inputs???
 			notes.forEachAlive(function(daNote:Note)
 			{
+				if(!ClientPrefs.keyboardMode)
+		                {
 				// hold note functions
-				#if android
-				if (strumsBlocked[daNote.noteData] != true && daNote.isSustainNote && hitboxDataKeyIsPressed(daNote.noteData % Note.ammo[mania]) && daNote.canBeHit
-				&& daNote.mustPress && !daNote.tooLate && !daNote.wasGoodHit && !daNote.blockHit) {
-					goodNoteHit(daNote);
-				#else
-				if (strumsBlocked[daNote.noteData] != true && daNote.isSustainNote && dataKeyIsPressed(daNote.noteData % Note.ammo[mania]) && daNote.canBeHit
-				&& daNote.mustPress && !daNote.tooLate && !daNote.wasGoodHit && !daNote.blockHit) {
-					goodNoteHit(daNote);
-				#end
+					#if android
+					if (strumsBlocked[daNote.noteData] != true && daNote.isSustainNote && hitboxDataKeyIsPressed(daNote.noteData % Note.ammo[mania]) && daNote.canBeHit
+					&& daNote.mustPress && !daNote.tooLate && !daNote.wasGoodHit && !daNote.blockHit) {
+						goodNoteHit(daNote);
+					}
+					#end
+				}
+				else
+				{
+					if (strumsBlocked[daNote.noteData] != true && daNote.isSustainNote && dataKeyIsPressed(daNote.noteData % Note.ammo[mania]) && daNote.canBeHit
+					&& daNote.mustPress && !daNote.tooLate && !daNote.wasGoodHit && !daNote.blockHit) {
+						goodNoteHit(daNote);
+					}
 				}
 			});
-			if (keysArePressed() #if android || hitboxKeysArePressed() #end && !endingSong) {
-				#if ACHIEVEMENTS_ALLOWED
-				var achieve:String = checkForAchievement(['oversinging']);
-				if (achieve != null) {
-					startAchievement(achieve);
+			if(!ClientPrefs.keyboardMode)
+		        {
+				#if android
+				if (hitboxKeysArePressed() && !endingSong) {
+					#if ACHIEVEMENTS_ALLOWED
+					var achieve:String = checkForAchievement(['oversinging']);
+					if (achieve != null) {
+						startAchievement(achieve);
+					}
+					#end
+				}
+				else if (boyfriend.animation.curAnim != null && boyfriend.holdTimer > Conductor.stepCrochet * (0.0011 / FlxG.sound.music.pitch) * boyfriend.singDuration && boyfriend.animation.curAnim.name.startsWith('sing') && !boyfriend.animation.curAnim.name.endsWith('miss'))
+				{
+					boyfriend.dance();
+					//boyfriend.animation.curAnim.finish();
 				}
 				#end
 			}
-			else if (boyfriend.animation.curAnim != null && boyfriend.holdTimer > Conductor.stepCrochet * (0.0011 / FlxG.sound.music.pitch) * boyfriend.singDuration && boyfriend.animation.curAnim.name.startsWith('sing') && !boyfriend.animation.curAnim.name.endsWith('miss'))
+			else
 			{
-				boyfriend.dance();
-				//boyfriend.animation.curAnim.finish();
+				if (keysArePressed() && !endingSong) {
+					#if ACHIEVEMENTS_ALLOWED
+					var achieve:String = checkForAchievement(['oversinging']);
+					if (achieve != null) {
+						startAchievement(achieve);
+					}
+					#end
+				}
+				else if (boyfriend.animation.curAnim != null && boyfriend.holdTimer > Conductor.stepCrochet * (0.0011 / FlxG.sound.music.pitch) * boyfriend.singDuration && boyfriend.animation.curAnim.name.startsWith('sing') && !boyfriend.animation.curAnim.name.endsWith('miss'))
+				{
+					boyfriend.dance();
+					//boyfriend.animation.curAnim.finish();
+				}
 			}
 		}
-                for (i in 0..._hitbox.array.length) {
-			if (_hitbox.array[i].justReleased)
-			{
-			       onKeyRelease(new KeyboardEvent(KeyboardEvent.KEY_UP, true, true, -1, keysArray[mania][i][0]));
+		if(!ClientPrefs.keyboardMode)
+		{
+			#if android
+			for (i in 0..._hitbox.array.length) {
+				if (_hitbox.array[i].justReleased)
+				{
+				       onKeyRelease(new KeyboardEvent(KeyboardEvent.KEY_UP, true, true, -1, keysArray[mania][i][0]));
+				}
 			}
+			#end
 		}
 	}
 
