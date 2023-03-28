@@ -84,6 +84,11 @@ class ControlsSubState extends MusicBeatSubstate {
 		optionShit = pages[curPage];
 		reloadTexts();
 		changeSelection();
+		
+		#if android
+		addVirtualPad(LEFT_FULL, A_B);
+		addVirtualPadCamera();
+		#end
 	}
 
 	function reloadTexts() {
@@ -176,7 +181,12 @@ class ControlsSubState extends MusicBeatSubstate {
 
 			if (controls.BACK) {
 				ClientPrefs.reloadControls();
+				#if android
+				flixel.addons.transition.FlxTransitionableState.skipNextTransOut = true;
+				FlxG.resetState();
+				#else
 				close();
+				#end
 				FlxG.sound.play(Paths.sound('cancelMenu'));
 			}
 
