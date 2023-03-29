@@ -200,7 +200,7 @@ class NoteOffsetState extends MusicBeatState
 		
 		#if android
                 addVirtualPad(LEFT_FULL, A_B_C);
-                addVirtualPadCamera();
+                virtualPad.cameras = [camHUD];
                 #end
 
 		super.create();
