@@ -31,7 +31,7 @@ class FlashingState extends MusicBeatState
 	var manual:FlxSprite;
 	var textNoAdvanced:String = "Hey, watch out!\n
 								This Mod contains some flashing lights!\n
-								Press ENTER to disable them now or go to Options Menu.\nPress ESCAPE to ignore this message.\n
+								Press A to disable them now or go to Options Menu.\nPress B to ignore this message.\n
 								You've been warned!";
 	var textAdvanced:String = "";
 
@@ -51,7 +51,7 @@ class FlashingState extends MusicBeatState
 		displaySaveDataPath = StringTools.replace(saveDataPath, "\\", "/");
 
 		textAdvanced = 	
-		"Before use:\n\nEK uses a different save data folder than normal\nPsych Engine, so you are going to have to set your\noptions to what you're using.\n" + 
+		"Before use:\n\nEK uses a different save data folder than normal\nPsych Engine, so you are going to have to set your\noptions to what you're using.\n(Mobile users can ignore this message)\n" + 
 		#if lime
 		"Save data creation path:\n\n" + displaySaveDataPath + "\n" +
 		#if windows
