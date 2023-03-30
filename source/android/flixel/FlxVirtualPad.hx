@@ -178,6 +178,7 @@ enum FlxDPadMode
 	UP_LEFT_RIGHT;
 	LEFT_FULL;
 	RIGHT_FULL;
+        LEFT_A_B;
 	NONE;
 }
 
