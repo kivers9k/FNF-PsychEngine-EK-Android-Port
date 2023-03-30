@@ -161,6 +161,11 @@ class DialogueCharacterEditorState extends MusicBeatState
 		addEditorBox();
 		FlxG.mouse.visible = true;
 		updateCharTypeBox();
+
+                #if android
+                addVirtualPad(LEFT_FULL, A_B_X_Y);
+                virtualPad.cameras =[camHUD];
+                #end
 		
 		super.create();
 	}
