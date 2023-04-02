@@ -2889,14 +2889,6 @@ class PlayState extends MusicBeatState
 				
 		mania = newValue;
 		
-		if(!ClientPrefs.keyboardMode)
-		{
-			#if android
-			remove(_hitbox);
-			addHitbox(mania);
-			_hitbox.visible = true;
-			#end
-		}
 		if (!skipStrumFadeOut) {
 			for (i in 0...strumLineNotes.members.length) {
 				var oldStrum:FlxSprite = strumLineNotes.members[i].clone();
@@ -2913,6 +2905,15 @@ class PlayState extends MusicBeatState
 					remove(oldStrum);
 				}});
 			}
+		}
+		
+		if(!ClientPrefs.keyboardMode)
+		{
+			#if android
+			remove(_hitbox);
+			addHitbox(mania);
+			_hitbox.visible = true;
+			#end
 		}
 
 		playerStrums.clear();
