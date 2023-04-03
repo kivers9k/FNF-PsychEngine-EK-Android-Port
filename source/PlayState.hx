@@ -1182,6 +1182,7 @@ class PlayState extends MusicBeatState
 		{
 			#if android
 			addHitbox(mania);
+			_hitbox.cameras = [camHUD];
 			#end
 		}
 
@@ -2912,6 +2913,7 @@ class PlayState extends MusicBeatState
 			#if android
 			remove(_hitbox);
 			addHitbox(mania);
+			_hitbox.cameras = [camHUD];
 			_hitbox.visible = true;
 			#end
 		}
