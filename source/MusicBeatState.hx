@@ -118,7 +118,6 @@ class MusicBeatState extends FlxUIState
 		}
 
 		_hitbox = new FlxHitbox(curhitbox);
-		_hitbox.cameras = [PlayState.instance.camHUD];
 
 		_hitbox.visible = false;
 		add(_hitbox);
