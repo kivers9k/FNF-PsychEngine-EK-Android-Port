@@ -1182,7 +1182,6 @@ class PlayState extends MusicBeatState
 		{
 			#if android
 			addHitbox(mania);
-                        _hitbox.scrollFactor.set(0, 0);
 			_hitbox.cameras = [camHUD];
 			#end
 		}
