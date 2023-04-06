@@ -123,6 +123,14 @@ class MusicBeatState extends FlxUIState
 		add(_hitbox);
 	}
 
+        public function addHitboxCamera(DefaultDrawTarget:Bool = true):Void
+	{
+		var camControls:FlxCamera = new FlxCamera();
+		camControls.bgColor.alpha = 0;
+		FlxG.cameras.add(camControls, DefaultDrawTarget);
+		_hitbox.cameras = [camControls];
+	}
+
 	public function removeVirtualPad():Void
 	{
 		if (trackedInputsVirtualPad.length > 0)
