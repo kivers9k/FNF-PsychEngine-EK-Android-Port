@@ -219,7 +219,6 @@ class PlayState extends MusicBeatState
 	public var camHUD:FlxCamera;
 	public var camGame:FlxCamera;
 	public var camOther:FlxCamera;
-	public var camControls:FlxCamera;
 	public var cameraSpeed:Float = 1;
 
 	var dialogue:Array<String> = ['blah blah blah', 'coolswag'];
@@ -381,15 +380,12 @@ class PlayState extends MusicBeatState
 		camGame = new FlxCamera();
 		camHUD = new FlxCamera();
 		camOther = new FlxCamera();
-		camControls = new FlxCamera();
 		camHUD.bgColor.alpha = 0;
-		camControls.bgColor.alpha = 0;
 		camOther.bgColor.alpha = 0;
 
 		FlxG.cameras.reset(camGame);
 		FlxG.cameras.add(camHUD, false);
 		FlxG.cameras.add(camOther, false);
-		FlxG.cameras.add(camControls);
 		grpNoteSplashes = new FlxTypedGroup<NoteSplash>();
 
 		FlxG.cameras.setDefaultDrawTarget(camGame, true);
@@ -1186,7 +1182,7 @@ class PlayState extends MusicBeatState
 		{
 			#if android
 			addHitbox(mania);
-			_hitbox.cameras = [camControls];
+			_hitbox.cameras = [camHUD];
 			#end
 		}
 
@@ -2917,7 +2913,7 @@ class PlayState extends MusicBeatState
 			#if android
 			remove(_hitbox);
 			addHitbox(mania);
-			_hitbox.cameras = [camControls];
+			_hitbox.cameras = [camHUD];
 			_hitbox.visible = true;
 			#end
 		}
