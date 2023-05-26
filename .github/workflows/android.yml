@@ -49,10 +49,10 @@ jobs:
           haxelib --quiet install flixel-tools
           haxelib --quiet install flixel-ui
           haxelib --quiet install hscript 2.5.0
-          haxelib --quiet install flixel-addons
+          haxelib --quiet install flixel-addons 3.0.2
           haxelib --quiet install hxCodec 2.5.1
           haxelib git linc_luajit https://github.com/Sirox228/linc_luajit.git
-          haxelib git extension-androidtools https://github.com/MAJigsaw77/extension-androidtools.git
+          haxelib git extension-androidtools https://github.com/Heropowerbrine/extension-androidtools.git
           haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
           haxelib list
       - name: Create Version Tag
@@ -67,11 +67,15 @@ jobs:
           haxelib run lime config ANDROID_SETUP true
           haxelib set lime 7.9.0
           haxelib set openfl 9.1.0
+          haxelib set flixel 4.11.0
+          haxelib set flixel-addons 3.0.2
+          haxelib set hscript 2.5.0
+          haxelib set hxCodec 2.5.1
         env:
           ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
 
       - name: Compile
-        run: haxelib run lime build android -armv7 --app-version="4.0.0-${{ github.run_id}}"
+        run: haxelib run lime build android --app-version="4.0.0-${{ github.run_id}}"
 
       - name: Publish Artifact
         uses: actions/upload-artifact@v2.2.4
