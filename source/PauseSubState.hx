@@ -144,7 +144,7 @@ class PauseSubState extends MusicBeatSubstate
                 {
                         addVirtualPad(UP_DOWN, A);
                 }
-                addVirtualPad();
+                virtualPad.cameras = [PlayState.instance.camOther];
                 #end
 	}
 
