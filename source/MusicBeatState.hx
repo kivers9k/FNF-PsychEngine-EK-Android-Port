@@ -19,8 +19,8 @@ import flixel.FlxCamera;
 import flixel.FlxBasic;
 #if android
 import flixel.input.actions.FlxActionInput;
-import android.FlxHitbox;
-import android.FlxVirtualPad;
+import android.flixel.FlxHitbox;
+import android.flixel.FlxVirtualPad;
 #end
 
 class MusicBeatState extends FlxUIState
