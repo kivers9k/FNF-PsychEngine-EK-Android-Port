@@ -159,7 +159,7 @@ class FlxVirtualPad extends FlxSpriteGroup
 	private function createButton(X:Float, Y:Float, Width:Int, Height:Int, Graphic:String):FlxButton
 	{
 		var button:FlxButton = new FlxButton(X, Y);
-		button.frames = FlxTileFrames.fromFrame(FlxAtlasFrames.fromSparrow(Assets.getBitmapData('assets/images/android/virtualpad.png'),
+		button.frames = FlxTileFrames.fromFrame(FlxAtlasFrames.fromSparrow(Assets.getBitmapData('assets/images/androidcontrols/virtualpad.png'),
 		Assets.getText('assets/images/androidcontrols/virtualpad.txt'))
 		.getByName(Graphic),
 		FlxPoint.get(Width, Height));
