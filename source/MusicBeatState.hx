@@ -108,18 +108,26 @@ class MusicBeatState extends FlxUIState
 			default:
 				curhitbox = FOUR;
 		}
-
 		_hitbox = new FlxHitbox(curhitbox, 0.75, ClientPrefs.globalAntialiasing);
 
 		var camcontrol = new flixel.FlxCamera();
-		FlxG.cameras.add(camcontrol);
 		camcontrol.bgColor.alpha = 0;
+		FlxG.cameras.add(camcontrol, false);
 		_hitbox.cameras = [camcontrol];
 
 		_hitbox.visible = false;
 		add(_hitbox);
 	}
     #end
+
+	#if mobile
+        public function addPadCamera() {
+		var camcontrol = new flixel.FlxCamera();
+		camcontrol.bgColor.alpha = 0;
+		FlxG.cameras.add(camcontrol, false);
+		_virtualpad.cameras = [camcontrol];
+	}
+	#end
 
 	override function destroy() {
 		#if mobile
