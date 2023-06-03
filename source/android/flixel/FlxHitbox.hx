@@ -71,29 +71,29 @@ class FlxHitbox extends FlxSpriteGroup {
         switch (type)
         {
             case ONE:
-                hitbox_hint.loadGraphic(Paths.image('androidcontrols/1k_hint'));
+                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitbox/1k_hint'));
 
                 hitbox.add(add(K1 = createhitbox(0, 0, "K1")));
             case TWO:
-                hitbox_hint.loadGraphic(Paths.image('androidcontrols/2k_hint'));
+                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitbox/2k_hint'));
 
                 hitbox.add(add(K1 = createhitbox(0, 0, "K1")));
                 hitbox.add(add(K2 = createhitbox(640, 0, "K2")));
             case THREE:
-                hitbox_hint.loadGraphic(Paths.image('androidcontrols/3k_hint'));
+                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitbox/3k_hint'));
 
                 hitbox.add(add(K1 = createhitbox(0, 0, "K1")));
                 hitbox.add(add(K2 = createhitbox(426, 0, "K2")));
                 hitbox.add(add(K3 = createhitbox(852, 0, "K3")));
             case FOUR:
-                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitbox_hint'));
+                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitbox/4k_hint'));
 
                 hitbox.add(add(K1 = createhitbox(0, 0, "K1")));
                 hitbox.add(add(K2 = createhitbox(320, 0, "K2")));
                 hitbox.add(add(K3 = createhitbox(640, 0, "K3")));
                 hitbox.add(add(K4 = createhitbox(960, 0, "K4")));
             case FIVE:
-                hitbox_hint.loadGraphic(Paths.image('androidcontrols/5k_hint'));
+                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitbox/5k_hint'));
 
                 hitbox.add(add(K1 = createhitbox(0, 0, "K1")));
                 hitbox.add(add(K2 = createhitbox(256, 0, "K2")));
@@ -101,7 +101,7 @@ class FlxHitbox extends FlxSpriteGroup {
                 hitbox.add(add(K4 = createhitbox(768, 0, "K4")));
                 hitbox.add(add(K5 = createhitbox(1024, 0, "K5"))); 
             case SIX:
-                hitbox_hint.loadGraphic(Paths.image('androidcontrols/6k_hint'));
+                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitbox/6k_hint'));
 
                 hitbox.add(add(K1 = createhitbox(0, 0, "K1")));
                 hitbox.add(add(K2 = createhitbox(213, 0, "K2")));
@@ -110,7 +110,7 @@ class FlxHitbox extends FlxSpriteGroup {
                 hitbox.add(add(K5 = createhitbox(852, 0, "K5")));
                 hitbox.add(add(K6 = createhitbox(1065, 0, "K6")));
             case SEVEN:
-                hitbox_hint.loadGraphic(Paths.image('androidcontrols/7k_hint'));
+                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitbox/7k_hint'));
 
                 hitbox.add(add(K1 = createhitbox(0, 0, "K1")));
                 hitbox.add(add(K2 = createhitbox(182, 0, "K2")));
@@ -120,7 +120,7 @@ class FlxHitbox extends FlxSpriteGroup {
                 hitbox.add(add(K6 = createhitbox(910, 0, "K6")));
                 hitbox.add(add(K7 = createhitbox(1092, 0, "K7")));
             case EIGHT:
-                hitbox_hint.loadGraphic(Paths.image('androidcontrols/8k_hint'));
+                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitbox/8k_hint'));
 
                 hitbox.add(add(K1 = createhitbox(0, 0, "K1")));
                 hitbox.add(add(K2 = createhitbox(160, 0, "K2")));
@@ -131,7 +131,7 @@ class FlxHitbox extends FlxSpriteGroup {
                 hitbox.add(add(K7 = createhitbox(960, 0, "K7")));
                 hitbox.add(add(K8 = createhitbox(1120, 0, "K8")));
             case NINE:
-                hitbox_hint.loadGraphic(Paths.image('androidcontrols/9k_hint'));
+                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitbox/9k_hint'));
 
                 hitbox.add(add(K1 = createhitbox(0, 0, "K1")));
                 hitbox.add(add(K2 = createhitbox(142, 0, "K2")));
@@ -143,7 +143,7 @@ class FlxHitbox extends FlxSpriteGroup {
                 hitbox.add(add(K8 = createhitbox(994, 0, "K8")));
                 hitbox.add(add(K9 = createhitbox(1136, 0, "K9")));
             case TEN:
-                hitbox_hint.loadGraphic(Paths.image('androidcontrols/10k_hint'));
+                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitbox/10k_hint'));
 
                 hitbox.add(add(K1 = createhitbox(0, 0, "K1")));
                 hitbox.add(add(K2 = createhitbox(128, 0, "K2")));
@@ -156,7 +156,7 @@ class FlxHitbox extends FlxSpriteGroup {
                 hitbox.add(add(K9 = createhitbox(1024, 0, "K9")));
                 hitbox.add(add(K10 = createhitbox(1152, 0, "K10")));
             case ELEVEN:
-                hitbox_hint.loadGraphic(Paths.image('androidcontrols/11k_hint'));
+                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitbox/11k_hint'));
 
                 hitbox.add(add(K1 = createhitbox(0, 0, "K1")));
                 hitbox.add(add(K2 = createhitbox(116, 0, "K2")));
@@ -170,7 +170,7 @@ class FlxHitbox extends FlxSpriteGroup {
                 hitbox.add(add(K10 = createhitbox(1044, 0, "K10"))); 
                 hitbox.add(add(K11 = createhitbox(1160, 0, "K11")));
 	    case TWELVE:
-                hitbox_hint.loadGraphic(Paths.image('androidcontrols/12k_hint'));
+                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitbox/12k_hint'));
                 
                 hitbox.add(add(K1 = createhitbox(0, "K1"))); 
                 hitbox.add(add(K2 = createhitbox(106, "K2")));
@@ -185,7 +185,7 @@ class FlxHitbox extends FlxSpriteGroup {
                 hitbox.add(add(K11 = createhitbox(1060, "K11"))); 
                 hitbox.add(add(K12 = createhitbox(1166, "K12")));
 	    case THIRTEEN:
-                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitbox13k_hint'));
+                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitbox/13k_hint'));
                 
                 hitbox.add(add(K1 = createhitbox(0, "K1"))); 
                 hitbox.add(add(K2 = createhitbox(98, "K2")));
@@ -201,7 +201,7 @@ class FlxHitbox extends FlxSpriteGroup {
                 hitbox.add(add(K12 = createhitbox(1078, "K12")));
                 hitbox.add(add(K13 = createhitbox(1176, "K13")));
 	    case FOURTEEN:
-                hitbox_hint.loadGraphic(Paths.image('androidcontrols/14k_hint'));
+                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitbox/14k_hint'));
                 
                 hitbox.add(add(K1 = createhitbox(0, "K1"))); 
                 hitbox.add(add(K2 = createhitbox(91, "K2")));
@@ -218,7 +218,7 @@ class FlxHitbox extends FlxSpriteGroup {
                 hitbox.add(add(K13 = createhitbox(1092, "K13")));
 		hitbox.add(add(K14 = createhitbox(1183, "K14")));
 	    case FIFTEEN:
-                hitbox_hint.loadGraphic(Paths.image('androidcontrols/15k_hint'));
+                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitbox/15k_hint'));
                 
                 hitbox.add(add(K1 = createhitbox(0, "K1"))); 
                 hitbox.add(add(K2 = createhitbox(85, "K2")));
@@ -236,7 +236,7 @@ class FlxHitbox extends FlxSpriteGroup {
                 hitbox.add(add(K14 = createhitbox(1105, "K14"))); 
                 hitbox.add(add(K15 = createhitbox(1190, "K15")));
 	    case SIXTEEN:
-                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitbox16k_hint'));
+                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitbox/16k_hint'));
                 
                 hitbox.add(add(K1 = createhitbox(0, "K1"))); 
                 hitbox.add(add(K2 = createhitbox(80, "K2")));
@@ -255,7 +255,7 @@ class FlxHitbox extends FlxSpriteGroup {
                 hitbox.add(add(K15 = createhitbox(1120, "K15")));
                 hitbox.add(add(K16 = createhitbox(1200, "K16"))); 
 	    case SEVENTEEN:
-                hitbox_hint.loadGraphic(Paths.image('androidcontrols/17k_hint'));
+                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitbox/17k_hint'));
                 
                 hitbox.add(add(K1 = createhitbox(0, "K1"))); 
                 hitbox.add(add(K2 = createhitbox(75, "K2")));
@@ -275,7 +275,7 @@ class FlxHitbox extends FlxSpriteGroup {
                 hitbox.add(add(K16 = createhitbox(1125, "K16")));
 		hitbox.add(add(K17 = createhitbox(1200, "K17")));
 	    case EIGHTEEN:
-                hitbox_hint.loadGraphic(Paths.image('androidcontrols/18k_hint'));
+                hitbox_hint.loadGraphic(Paths.image('androidcontrols/hitbox/18k_hint'));
                 
                 hitbox.add(add(K1 = createhitbox(0, "K1"))); 
                 hitbox.add(add(K2 = createhitbox(71, "K2")));
@@ -318,42 +318,42 @@ class FlxHitbox extends FlxSpriteGroup {
     public function getFrames():FlxAtlasFrames {
         return switch (orgType)
         {
-            case ONE:
-                Paths.getSparrowAtlas('androidcontrols/1k');
-            case TWO:
-                Paths.getSparrowAtlas('androidcontrols/2k');
-            case THREE:
-                Paths.getSparrowAtlas('androidcontrols/3k');
-            case FOUR:
-                Paths.getSparrowAtlas('androidcontrols/hitbox');
-            case FIVE:
-                Paths.getSparrowAtlas('androidcontrols/5k');
-            case SIX:
-                Paths.getSparrowAtlas('androidcontrols/6k');
-            case SEVEN:
-                Paths.getSparrowAtlas('androidcontrols/7k');
-            case EIGHT:
-                Paths.getSparrowAtlas('androidcontrols/8k');
-            case NINE:
-                Paths.getSparrowAtlas('androidcontrols/9k');
-            case TEN:
-                Paths.getSparrowAtlas('androidcontrols/10k');
-            case ELEVEN:
-                Paths.getSparrowAtlas('androidcontrols/11k');
-	    case TWELVE:
-		Paths.getSparrowAtlas('androidcontrols/12k');
-	    case THIRTEEN:
-		Paths.getSparrowAtlas('androidcontrols/hitbox13k');
-	    case FOURTEEN:
-		Paths.getSparrowAtlas('androidcontrols/14k');
-	    case FIFTEEN:
-		Paths.getSparrowAtlas('androidcontrols/15k');
-	    case SIXTEEN:
-		Paths.getSparrowAtlas('androidcontrols/hitbox16k');
-	    case SEVENTEEN:
-		Paths.getSparrowAtlas('androidcontrols/17k');
-	    case EIGHTEEN:
-		Paths.getSparrowAtlas('androidcontrols/18k');
+        case ONE:
+            Paths.getSparrowAtlas('androidcontrols/hitbox/1k');
+        case TWO:
+            Paths.getSparrowAtlas('androidcontrols/hitbox/2k');
+        case THREE:
+            Paths.getSparrowAtlas('androidcontrols/hitbox/3k');
+        case FOUR:
+            Paths.getSparrowAtlas('androidcontrols/hitbox/4k');
+        case FIVE:
+            Paths.getSparrowAtlas('androidcontrols/hitbox/5k');
+        case SIX:
+            Paths.getSparrowAtlas('androidcontrols/hitbox/6k');
+        case SEVEN:
+            Paths.getSparrowAtlas('androidcontrols/hitbox/7k');
+        case EIGHT:
+            Paths.getSparrowAtlas('androidcontrols/hitbox/8k');
+        case NINE:
+            Paths.getSparrowAtlas('androidcontrols/hitbox/9k');
+        case TEN:
+            Paths.getSparrowAtlas('androidcontrols/hitbox/10k');
+        case ELEVEN:
+            Paths.getSparrowAtlas('androidcontrols/hitbox/11k');
+        case TWELVE:
+            Paths.getSparrowAtlas('androidcontrols/hitbox/12k');
+        case THIRTEEN:
+            Paths.getSparrowAtlas('androidcontrols/hitbox/13k');
+        case FOURTEEN:
+            Paths.getSparrowAtlas('androidcontrols/hitbox/14k');
+        case FIFTEEN:
+            Paths.getSparrowAtlas('androidcontrols/hitbox/15k');
+        case SIXTEEN:
+            Paths.getSparrowAtlas('androidcontrols/hitbox/16k');
+        case SEVENTEEN:
+            Paths.getSparrowAtlas('androidcontrols/hitbox/17k');
+        case EIGHTEEN:
+            Paths.getSparrowAtlas('androidcontrols/hitbox/18k');
         }
     }
 
