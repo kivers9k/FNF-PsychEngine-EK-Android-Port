@@ -93,8 +93,8 @@ class NotesSubState extends MusicBeatSubstate
 		add(hsbText);
 		
 		#if android
-		addVirtualPad(LEFT_FULL, A_B_C);
-		addVirtualPadCamera();
+		addVirtualPad(FULL, A_B_C);
+		addPadCamera();
 		#end
 
 		changeSelection();
@@ -131,7 +131,7 @@ class NotesSubState extends MusicBeatSubstate
 				} else if(controls.UI_RIGHT_P) {
 					updateValue(1);
 					FlxG.sound.play(Paths.sound('scrollMenu'));
-				} else if(controls.RESET #if android || virtualPad.buttonC.justPressed #end) {
+				} else if(controls.RESET #if android || _virtualpad.buttonC.justPressed #end) {
 					resetValue(curSelected, typeSelected);
 					FlxG.sound.play(Paths.sound('scrollMenu'));
 				}
