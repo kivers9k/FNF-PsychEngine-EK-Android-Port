@@ -101,11 +101,6 @@ class FlxVirtualPad extends FlxSpriteGroup {
 				dPad.add(add(buttonLeft2 = createButton(FlxG.width - 128 * 3, FlxG.height - 66 - 81 * 3, 44 * 3, 45 * 3, "left")));
 				dPad.add(add(buttonRight2 = createButton(FlxG.width - 44 * 3, FlxG.height - 66 - 81 * 3, 44 * 3, 45 * 3, "right")));
 				dPad.add(add(buttonDown2 = createButton(FlxG.width - 86 * 3, FlxG.height - 66 - 45 * 3, 44 * 3, 45 * 3, "down")));
-			case DEBUG_PAD:
-				dPad.add(add(buttonLeft = createButton(FlxG.width - 170 * 3, FlxG.height - 81 * 3, 44 * 3, 45 * 3, "left")));
-				dPad.add(add(buttonDown = createButton(FlxG.width - 128 * 3, FlxG.height - 81 * 3, 44 * 3, 45 * 3, "down")));
-				dPad.add(add(buttonUp = createButton(FlxG.width - 86 * 3, FlxG.height - 81 * 3, 44 * 3, 45 * 3, "up")));								
-				dPad.add(add(buttonRight = createButton(FlxG.width - 44 * 3, FlxG.height - 81 * 3, 44 * 3, 45 * 3, "right")));	 			               
 			case NONE:
 		}
 
@@ -216,7 +211,6 @@ enum FlxDPadMode {
 	FULL;
 	RIGHT_FULL;
 	DUO;
-	DEBUG_PAD;
 	NONE;
 }
 
@@ -227,7 +221,7 @@ enum FlxActionMode {
 	A_B;
 	A_B_C;
 	A_B_E;
-	A_B_X_Y;	
+	A_B_X_Y;
 	A_B_C_X_Y;
 	A_B_C_X_Y_Z;
 	FULL;
