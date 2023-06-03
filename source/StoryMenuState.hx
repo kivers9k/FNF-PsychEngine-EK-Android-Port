@@ -186,7 +186,7 @@ class StoryMenuState extends MusicBeatState
 		changeDifficulty();
 
         #if android
-        addVirtualPad(LEFT, A_B_C);
+        addVirtualPad(FULL, A_B_C);
         #end
 
 		super.create();
