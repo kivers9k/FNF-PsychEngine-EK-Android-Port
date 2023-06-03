@@ -54,6 +54,7 @@ class MusicBeatState extends FlxUIState
 		controls.setVirtualPadUI(_virtualpad, DPad, Action);
 		trackedinputsUI = controls.trackedinputsUI;
 		controls.trackedinputsUI = [];
+		_virtualpad.cameras = [camOther];
 	}
 	#end
 
@@ -120,15 +121,6 @@ class MusicBeatState extends FlxUIState
 		add(_hitbox);
 	}
     #end
-
-    #if mobile
-        public function addPadCamera() {
-		var camcontrol = new flixel.FlxCamera();
-		FlxG.cameras.add(camcontrol);
-		camcontrol.bgColor.alpha = 0;
-		_virtualpad.cameras = [camcontrol];
-	}
-	#end
 
 	override function destroy() {
 		#if mobile
