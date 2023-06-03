@@ -54,7 +54,6 @@ class MusicBeatState extends FlxUIState
 		controls.setVirtualPadUI(_virtualpad, DPad, Action);
 		trackedinputsUI = controls.trackedinputsUI;
 		controls.trackedinputsUI = [];
-		_virtualpad.cameras = [camOther];
 	}
 	#end
 
@@ -75,9 +74,9 @@ class MusicBeatState extends FlxUIState
 			case 1:
 				curhitbox = TWO;
 			case 2:
-				curhitbox = THREE;					
+				curhitbox = THREE;
 			case 3:
-				curhitbox = FOUR;	
+				curhitbox = FOUR;
 			case 4:
 				curhitbox = FIVE;
 			case 5:
@@ -105,7 +104,7 @@ class MusicBeatState extends FlxUIState
 			case 16:
 				curhitbox= SEVENTEEN;
 			case 17:
-				curhitbox = EIGHTEEN;									
+				curhitbox = EIGHTEEN;
 			default:
 				curhitbox = FOUR;
 		}
