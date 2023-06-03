@@ -71,10 +71,10 @@ class GameOverSubstate extends MusicBeatSubstate
 		camFollowPos.setPosition(FlxG.camera.scroll.x + (FlxG.camera.width / 2), FlxG.camera.scroll.y + (FlxG.camera.height / 2));
 		add(camFollowPos);
 
-                #if android
-                addVirtualPad(NONE, A_B);
-                virtualPad.cameras = [PlayState.instance.camHUD];
-                #end
+        #if android
+        addVirtualPad(NONE, A_B);
+        addPadCamera();
+        #end
 	}
 
 	var isFollowingAlready:Bool = false;

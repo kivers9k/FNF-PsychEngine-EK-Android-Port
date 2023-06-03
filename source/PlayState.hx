@@ -2913,7 +2913,6 @@ class PlayState extends MusicBeatState
 			#if android
 			remove(_hitbox);
 			addHitbox(mania);
-			addHitboxCamera();
 			_hitbox.visible = true;
 			#end
 		}
