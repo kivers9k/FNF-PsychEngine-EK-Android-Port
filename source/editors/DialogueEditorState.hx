@@ -106,9 +106,9 @@ class DialogueEditorState extends MusicBeatState
 		add(daText);
 		changeText();
 
-                #if android
-                addVirtualPad(LEFT_FULL, A_B_C);
-                #end
+        #if android
+        addVirtualPad(FULL, A_B_C);
+        #end
 
 		super.create();
 	}

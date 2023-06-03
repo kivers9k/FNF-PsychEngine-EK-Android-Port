@@ -162,10 +162,10 @@ class EditorPlayState extends MusicBeatState
 		//sayGo();
 		if(!ClientPrefs.keyboardMode)
 		{
-                        #if android
-			addHitbox(songMania);
-                        _hitbox.visible = true;
-                        #end
+        #if android
+		addHitbox(songMania);
+        _hitbox.visible = true;
+        #end
 		}
 		else if(ClientPrefs.keyboardMode)
 		{

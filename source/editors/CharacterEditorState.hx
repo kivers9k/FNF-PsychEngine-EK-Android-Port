@@ -1182,7 +1182,7 @@ class CharacterEditorState extends MusicBeatState
 				if (curAnim >= char.animationsArray.length)
 					curAnim = 0;
 
-				if (FlxG.keys.justPressed.S #if android || _virtualpad.buttonD.justPressed #end || FlxG.keys.justPressed.W #if android || virtualPad.buttonV.justPressed #end || FlxG.keys.justPressed.SPACE)
+				if (FlxG.keys.justPressed.S #if android || _virtualpad.buttonD.justPressed #end || FlxG.keys.justPressed.W #if android || _virtualpad.buttonV.justPressed #end || FlxG.keys.justPressed.SPACE)
 				{
 					char.playAnim(char.animationsArray[curAnim].anim, true);
 					genBoyOffsets();
