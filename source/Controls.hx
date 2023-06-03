@@ -10,11 +10,11 @@ import flixel.input.actions.FlxActionSet;
 import flixel.input.gamepad.FlxGamepadButton;
 import flixel.input.gamepad.FlxGamepadInputID;
 import flixel.input.keyboard.FlxKey;
-#if mobile
+#if android
 import flixel.group.FlxGroup;
+import flixel.ui.FlxButton;
 import android.flixel.FlxHitbox;
 import android.flixel.FlxVirtualPad;
-import flixel.ui.FlxButton;
 #end
 
 #if (haxe >= "4.0.0")
@@ -382,24 +382,6 @@ class Controls extends FlxActionSet
 		if (scheme == null)
 			scheme = None;
 		setKeyboardScheme(scheme, false);
-	}
-	#end
-
-
-@@ -10,6 +10,12 @@ import flixel.input.actions.FlxActionSet;
-import flixel.input.gamepad.FlxGamepadButton;
-import flixel.input.gamepad.FlxGamepadInputID;
-import flixel.input.keyboard.FlxKey;
-#if android
-import flixel.group.FlxGroup;
-import android.FlxHitbox;
-import android.FlxVirtualPad;
-import flixel.ui.FlxButton;
-#end
-
-#if (haxe >= "4.0.0")
-enum abstract Action(String) to String from String
-@@ -353,6 +359,168 @@ class Controls extends FlxActionSet
 	}
 	#end
 
