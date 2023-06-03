@@ -199,7 +199,7 @@ class FreeplayState extends MusicBeatState
 		add(text);
 
         #if mobile
-        addVirtualPad(LEFT_FULL, A_B_C_X_Y);
+        addVirtualPad(FULL, FULL);
         #end
         super.create();
 	}
@@ -269,8 +269,8 @@ class FreeplayState extends MusicBeatState
 		var upP = controls.UI_UP_P;
 		var downP = controls.UI_DOWN_P;
 		var accepted = controls.ACCEPT;
-		var space = FlxG.keys.justPressed.SPACE #if android || virtualPad.buttonY.justPressed #end;
-		var ctrl = FlxG.keys.justPressed.CONTROL #if android || virtualPad.buttonC.justPressed #end;
+		var space = FlxG.keys.justPressed.SPACE #if android || _virtualpad.buttonY.justPressed #end;
+		var ctrl = FlxG.keys.justPressed.CONTROL #if android || _virtualpad.buttonC.justPressed #end;
 
 		var shiftMult:Int = 1;
 		if(FlxG.keys.pressed.SHIFT) shiftMult = 3;
@@ -394,7 +394,7 @@ class FreeplayState extends MusicBeatState
 					
 			destroyFreeplayVocals();
 		}
-		else if(controls.RESET #if android || virtualPad.buttonX.justPressed #end)
+		else if(controls.RESET #if android || _virtualpad.buttonX.justPressed #end)
 		{
 			#if android
 			removeVirtualPad();
