@@ -17,7 +17,7 @@ import flixel.util.FlxGradient;
 import flixel.FlxState;
 import flixel.FlxCamera;
 import flixel.FlxBasic;
-#if android
+#if mobile
 import flixel.input.actions.FlxActionInput;
 import android.flixel.FlxHitbox;
 import android.flixel.FlxVirtualPad;
@@ -40,14 +40,14 @@ class MusicBeatState extends FlxUIState
 	inline function get_controls():Controls
 	return PlayerSettings.player1.controls;
 
-	#if android
+	#if mobile
 	var _virtualpad:FlxVirtualPad;
 	var _hitbox:FlxHitbox;
 	var trackedinputsUI:Array<FlxActionInput> = [];
 	var trackedinputsNOTES:Array<FlxActionInput> = [];
 	#end
 
-	#if android
+	#if mobile
 	public function addVirtualPad(?DPad:FlxDPadMode, ?Action:FlxActionMode) {
         _virtualpad = new FlxVirtualPad(DPad, Action, 0.75, ClientPrefs.globalAntialiasing);
 		add(_virtualpad);
@@ -57,14 +57,14 @@ class MusicBeatState extends FlxUIState
 	}
 	#end
 
-	#if android
+	#if mobile
 	public function removeVirtualPad() {
 		controls.removeFlxInput(trackedinputsUI);
 		remove(_virtualpad);
 	}
 	#end
 
-    #if android
+    #if mobile
 	public function addHitbox(mania:Int) {
 		var curhitbox:HitboxType = FOUR;
 
@@ -121,7 +121,7 @@ class MusicBeatState extends FlxUIState
 	}
     #end
 
-    #if android
+    #if mobile
         public function addPadCamera() {
 		var camcontrol = new flixel.FlxCamera();
 		FlxG.cameras.add(camcontrol);
@@ -131,7 +131,7 @@ class MusicBeatState extends FlxUIState
 	#end
 
 	override function destroy() {
-		#if android
+		#if mobile
 		controls.removeFlxInput(trackedinputsUI);
 		controls.removeFlxInput(trackedinputsNOTES);	
 		#end	
