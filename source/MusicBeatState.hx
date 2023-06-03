@@ -54,6 +54,11 @@ class MusicBeatState extends FlxUIState
 		controls.setVirtualPadUI(_virtualpad, DPad, Action);
 		trackedinputsUI = controls.trackedinputsUI;
 		controls.trackedinputsUI = [];
+
+		var padcam = new flixel.FlxCamera();
+		padcam.bgColor.alpha = 0;
+		FlxG.cameras.add(padcam, false);
+		_virtualpad.cameras = [padcam];
 	}
 	#end
 
@@ -108,26 +113,17 @@ class MusicBeatState extends FlxUIState
 			default:
 				curhitbox = FOUR;
 		}
-		_hitbox = new FlxHitbox(curhitbox, 0.75, ClientPrefs.globalAntialiasing);
+		_hitbox = new FlxHitbox(curhitbox);
 
-		var camcontrol = new flixel.FlxCamera();
-		camcontrol.bgColor.alpha = 0;
-		FlxG.cameras.add(camcontrol, false);
-		_hitbox.cameras = [camcontrol];
+		var hitboxcam = new flixel.FlxCamera();
+		hitboxcam.bgColor.alpha = 0;
+		FlxG.cameras.add(hitboxcam, false);
+		_hitbox.cameras = [hitboxcam];
 
 		_hitbox.visible = false;
 		add(_hitbox);
 	}
     #end
-
-	#if mobile
-        public function addPadCamera() {
-		var camcontrol = new flixel.FlxCamera();
-		camcontrol.bgColor.alpha = 0;
-		FlxG.cameras.add(camcontrol, false);
-		_virtualpad.cameras = [camcontrol];
-	}
-	#end
 
 	override function destroy() {
 		#if mobile

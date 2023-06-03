@@ -43,11 +43,16 @@ class MusicBeatSubstate extends FlxSubState
 
 	#if mobile
 	public function addVirtualPad(?DPad:FlxDPadMode, ?Action:FlxActionMode) {
-		_virtualpad = new FlxVirtualPad(DPad, Action);
+        _virtualpad = new FlxVirtualPad(DPad, Action, 0.75, ClientPrefs.globalAntialiasing);
 		add(_virtualpad);
 		controls.setVirtualPadUI(_virtualpad, DPad, Action);
 		trackedinputsUI = controls.trackedinputsUI;
 		controls.trackedinputsUI = [];
+
+		var padcam = new flixel.FlxCamera();
+		padcam.bgColor.alpha = 0;
+		FlxG.cameras.add(padcam, false);
+		_virtualpad.cameras = [padcam];
 	}
 	#end
 
