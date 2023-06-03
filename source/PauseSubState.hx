@@ -135,17 +135,17 @@ class PauseSubState extends MusicBeatSubstate
 		regenMenu();
 		cameras = [FlxG.cameras.list[FlxG.cameras.list.length - 1]];
 
-                #if android
+        #if android
 		if (PlayState.chartingMode)
-                {
-                        addVirtualPad(LEFT_FULL, A);
-                }
-                else
-                {
-                        addVirtualPad(UP_DOWN, A);
-                }
-                virtualPad.cameras = [PlayState.instance.camOther];
-                #end
+        {
+            addVirtualPad(LEFT, A);
+        }
+        else
+        {
+            addVirtualPad(UP_DOWN, A);
+        }
+        addPadCamera();
+        #end
 	}
 
 	var holdTime:Float = 0;
