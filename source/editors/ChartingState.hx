@@ -1662,8 +1662,7 @@ class ChartingState extends MusicBeatState
 				}
 			}
 		}
-		#end
-
+		#else
 		if (FlxG.mouse.x > gridBG.x
 			&& FlxG.mouse.x < gridBG.x + gridBG.width
 			&& FlxG.mouse.y > gridBG.y
@@ -1681,7 +1680,6 @@ class ChartingState extends MusicBeatState
 		} else {
 			dummyArrow.visible = false;
 		}
-
 		if (FlxG.mouse.justPressed)
 		{
 			if (FlxG.mouse.overlaps(curRenderedNotes))
@@ -1720,6 +1718,7 @@ class ChartingState extends MusicBeatState
 				}
 			}
 		}
+		#end
 
 		var blockInput:Bool = false;
 		for (inputText in blockPressWhileTypingOn) {
@@ -1887,7 +1886,7 @@ class ChartingState extends MusicBeatState
 
 
 
-			if (FlxG.keys.pressed.W || FlxG.keys.pressed.S #if android || _virtualpad.buttonUp.pressed || _virtualpad.buttonDown.pressed #end)
+			if (FlxG.keys.pressed.W #if android || _virtualpad.buttonUp.pressed #end || FlxG.keys.pressed.S #if android || _virtualpad.buttonDown.pressed #end)
 			{
 				FlxG.sound.music.pause();
 
@@ -1897,7 +1896,7 @@ class ChartingState extends MusicBeatState
 
 				var daTime:Float = 700 * FlxG.elapsed * holdingShift;
 
-				if (FlxG.keys.pressed.W)
+				if (FlxG.keys.pressed.W #if android || _virtualpad.buttonUp.pressed #end)
 				{
 					FlxG.sound.music.time -= daTime;
 				}
