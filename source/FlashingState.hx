@@ -79,6 +79,7 @@ class FlashingState extends MusicBeatState
 
         #if mobile
         addVirtualPad(NONE, A_B);
+        _virtualpad.x = -1025
         #end
 	}
 
