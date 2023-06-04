@@ -199,7 +199,7 @@ class NoteOffsetState extends MusicBeatState
 		FlxG.sound.playMusic(Paths.music('offsetSong'), 1, true);
 
 		#if android
-        addVirtualPad(FULL, A_B_C);
+        addVirtualPad(NONE, A_B_C);
         #end
 
 		super.create();
@@ -406,8 +406,11 @@ class NoteOffsetState extends MusicBeatState
 				}
 			});
 		}
-
 		lastBeatHit = curBeat;
+
+		#if android
+		addVirtualPad(LEFT_RIGHT, A_B_C);
+		#end
 	}
 
 	function repositionCombo()
