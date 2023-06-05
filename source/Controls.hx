@@ -463,7 +463,7 @@ class Controls extends FlxActionSet
            case FULL:
                 inline forEachBound(Control.ACCEPT, (action, state) -> addbuttonUI(action, virtualPad.buttonA, state));
 				inline forEachBound(Control.BACK, (action, state) -> addbuttonUI(action, virtualPad.buttonB, state));
-			case CHART_EDITOR;
+			case CHART_EDITOR:
                 inline forEachBound(Control.ACCEPT, (action, state) -> addbuttonUI(action, virtualPad.buttonA, state));
 				inline forEachBound(Control.BACK, (action, state) -> addbuttonUI(action, virtualPad.buttonB, state));
 				inline forEachBound(Control.UI_UP, (action, state) -> addbuttonUI(action, virtualPad.buttonUp, state));
