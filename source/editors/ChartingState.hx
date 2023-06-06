@@ -3000,7 +3000,7 @@ function updateGrid():Void
 		//var newsong = _song.notes;
 		//	undos.push(newsong);
 		var noteStrum = getStrumTime(dummyArrow.y, false) + sectionStartTime();
-		var noteData = 0
+		var noteData = 0;
 		var noteSus = 0;
 		var daAlt = false;
 		var daType = currentType;
