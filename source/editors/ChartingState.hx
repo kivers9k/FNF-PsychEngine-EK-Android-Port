@@ -174,7 +174,6 @@ class ChartingState extends MusicBeatState
 	];
 
 	var curZoom:Int = 2;
-
 	private var blockPressWhileTypingOn:Array<FlxUIInputText> = [];
 	private var blockPressWhileTypingOnStepper:Array<FlxUINumericStepper> = [];
 	private var blockPressWhileScrolling:Array<FlxUIDropDownMenuCustom> = [];
@@ -1616,7 +1615,7 @@ class ChartingState extends MusicBeatState
 		FlxG.watch.addQuick('daStep', curStep);
 
 		#if android
-		for (touch in FlxG.touches.list)
+		for (touch in FlxG.mouse)
 		{
 			if (touch.x > gridBG.x
 				&& touch.x < gridBG.x + gridBG.width
@@ -1625,7 +1624,7 @@ class ChartingState extends MusicBeatState
 			{
 				dummyArrow.visible = true;
 				dummyArrow.x = Math.floor(FlxG.mouse.x / GRID_SIZE) * GRID_SIZE;
-				if (virtualPad.buttonY.pressed)
+				if (_virtualpad.buttonY.pressed)
 					dummyArrow.y = touch.y;
 				else
 				{
@@ -3001,16 +3000,19 @@ function updateGrid():Void
 		//var newsong = _song.notes;
 		//	undos.push(newsong);
 		var noteStrum = getStrumTime(dummyArrow.y, false) + sectionStartTime();
-
-        #if android
-		var noteData = Math.floor((FlxG.touches.list.x - GRID_SIZE) / GRID_SIZE);
-		#else
-		var noteData = Math.floor((FlxG.mouse.x - GRID_SIZE) / GRID_SIZE);
-		#end
-
+		var noteData = 0
 		var noteSus = 0;
 		var daAlt = false;
 		var daType = currentType;
+
+        #if android
+        for (touch in FlxG.touches.list)
+        {
+		noteData = Math.floor((touch.x - GRID_SIZE) / GRID_SIZE);
+        }
+		#else
+		noteData = Math.floor((FlxG.mouse.x - GRID_SIZE) / GRID_SIZE);
+		#end
 
 		if (strum != null) noteStrum = strum;
 		if (data != null) noteData = data;
