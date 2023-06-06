@@ -1625,7 +1625,7 @@ class ChartingState extends MusicBeatState
 			{
 				dummyArrow.visible = true;
 				dummyArrow.x = Math.floor(FlxG.mouse.x / GRID_SIZE) * GRID_SIZE;
-				if (_virtualpad.buttonY.pressed)
+				if (virtualPad.buttonY.pressed)
 					dummyArrow.y = touch.y;
 				else
 				{
@@ -1662,9 +1662,8 @@ class ChartingState extends MusicBeatState
 				}
 			}
 		}
-		#end
+		#else
 
-		#if android
 		if (FlxG.mouse.x > gridBG.x
 			&& FlxG.mouse.x < gridBG.x + gridBG.width
 			&& FlxG.mouse.y > gridBG.y
@@ -3002,15 +3001,13 @@ function updateGrid():Void
 		//var newsong = _song.notes;
 		//	undos.push(newsong);
 		var noteStrum = getStrumTime(dummyArrow.y, false) + sectionStartTime();
-		var noteData = 0;
-		#if android
-		for (touch in FlxG.touches.list)
-		{
-		noteData = Math.floor((touch.x - GRID_SIZE) / GRID_SIZE);
-		}
+
+        #if android
+		var noteData = Math.floor((FlxG.touches.list.x - GRID_SIZE) / GRID_SIZE);
 		#else
-		noteData = Math.floor((FlxG.mouse.x - GRID_SIZE) / GRID_SIZE);
+		var noteData = Math.floor((FlxG.mouse.x - GRID_SIZE) / GRID_SIZE);
 		#end
+
 		var noteSus = 0;
 		var daAlt = false;
 		var daType = currentType;
