@@ -1615,7 +1615,7 @@ class ChartingState extends MusicBeatState
 		FlxG.watch.addQuick('daStep', curStep);
 
 		#if android
-		for (touch in FlxG.mouse)
+		for (touch in FlxG.touches.list)
 		{
 			if (touch.x > gridBG.x
 				&& touch.x < gridBG.x + gridBG.width
