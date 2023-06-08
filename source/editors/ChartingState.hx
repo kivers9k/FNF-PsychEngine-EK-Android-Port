@@ -1614,8 +1614,8 @@ class ChartingState extends MusicBeatState
 		FlxG.watch.addQuick('daBeat', curBeat);
 		FlxG.watch.addQuick('daStep', curStep);
 
-		for (touch in FlxG.touches.list)
-		{
+		var touch = FlxG.touches.list;
+
 			if (touch.x > gridBG.x
 				&& touch.x < gridBG.x + gridBG.width
 				&& touch.y > gridBG.y
@@ -1659,8 +1659,7 @@ class ChartingState extends MusicBeatState
 					}
 				}
 			}
-		}
-		else
+        #else
 
 		if (FlxG.mouse.x > gridBG.x
 			&& FlxG.mouse.x < gridBG.x + gridBG.width
