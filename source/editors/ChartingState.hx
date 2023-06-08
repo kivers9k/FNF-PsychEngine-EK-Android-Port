@@ -1660,7 +1660,7 @@ class ChartingState extends MusicBeatState
 				}
 			}
 		}
-		#else
+		else
 
 		if (FlxG.mouse.x > gridBG.x
 			&& FlxG.mouse.x < gridBG.x + gridBG.width
