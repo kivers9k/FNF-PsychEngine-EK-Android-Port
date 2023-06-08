@@ -417,7 +417,7 @@ class ChartingState extends MusicBeatState
 	function addSongUI():Void
 	{
 		UI_songTitle = new FlxUIInputText(10, 10, 70, _song.song, 8);
-                UI_songTitle.focusGained = () -> FlxG.stage.window.textInputEnabled = true;
+        UI_songTitle.focusGained = () -> FlxG.stage.window.textInputEnabled = true;
 		blockPressWhileTypingOn.push(UI_songTitle);
 		
 		var check_voices = new FlxUICheckBox(10, 25, null, null, "Has voice track", 100);
@@ -1614,7 +1614,6 @@ class ChartingState extends MusicBeatState
 		FlxG.watch.addQuick('daBeat', curBeat);
 		FlxG.watch.addQuick('daStep', curStep);
 
-		#if android
 		for (touch in FlxG.touches.list)
 		{
 			if (touch.x > gridBG.x
@@ -1718,7 +1717,6 @@ class ChartingState extends MusicBeatState
 				}
 			}
 		}
-		#end
 
 		var blockInput:Bool = false;
 		for (inputText in blockPressWhileTypingOn) {
@@ -1802,11 +1800,11 @@ class ChartingState extends MusicBeatState
 				undo();
 			}
 
-			if(FlxG.keys.justPressed.Z #if android || _virtualpad.buttonZ.justPressed #end && curZoom > 0 && !FlxG.keys.pressed.CONTROL) {
+			if(FlxG.keys.justPressed.Z #if android || _virtualpad.buttonC.justPressed #end && curZoom > 0 && !FlxG.keys.pressed.CONTROL) {
 				--curZoom;
 				updateZoom();
 			}
-			if(FlxG.keys.justPressed.X #if android || _virtualpad.buttonC.justPressed #end && curZoom < zoomList.length-1) {
+			if(FlxG.keys.justPressed.X #if android || _virtualpad.buttonZ.justPressed #end && curZoom < zoomList.length-1) {
 				curZoom++;
 				updateZoom();
 			}
