@@ -1752,14 +1752,29 @@ class ChartingState extends MusicBeatState
 				undo();
 			}
 
-			if(FlxG.keys.justPressed.Z #if android || _virtualpad.buttonC.justPressed #end && curZoom > 0 && !FlxG.keys.pressed.CONTROL) {
+			#if android
+			var C = _virtualpad.buttonC.justPressed
+			var Z = _virtualpad.buttonZ.justPressed
+
+			if(C && curZoom > 0) {
 				--curZoom;
 				updateZoom();
 			}
-			if(FlxG.keys.justPressed.X #if android || _virtualpad.buttonZ.justPressed #end && curZoom < zoomList.length-1) {
+			if(Z && curZoom < zoomList.length-1) {
 				curZoom++;
 				updateZoom();
 			}
+			#else
+			if(FlxG.keys.justPressed.Z && curZoom > 0 && !FlxG.keys.pressed.CONTROL) {
+				--curZoom;
+				updateZoom();
+			}
+			if(FlxG.keys.justPressed.X && curZoom < zoomList.length-1) {
+				curZoom++;
+				updateZoom();
+			}
+			#end
+
 
 			if (FlxG.keys.justPressed.TAB)
 			{
