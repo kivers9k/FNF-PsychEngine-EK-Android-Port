@@ -1753,6 +1753,7 @@ class ChartingState extends MusicBeatState
 			}
 
 			#if android
+			//mobile control stuff
 			var C = _virtualpad.buttonC.justPressed;
 			var Z = _virtualpad.buttonZ.justPressed;
 
@@ -1764,7 +1765,8 @@ class ChartingState extends MusicBeatState
 				curZoom++;
 				updateZoom();
 			}
-			#else
+			#end
+
 			if(FlxG.keys.justPressed.Z && curZoom > 0 && !FlxG.keys.pressed.CONTROL) {
 				--curZoom;
 				updateZoom();
@@ -1773,8 +1775,6 @@ class ChartingState extends MusicBeatState
 				curZoom++;
 				updateZoom();
 			}
-			#end
-
 
 			if (FlxG.keys.justPressed.TAB)
 			{
