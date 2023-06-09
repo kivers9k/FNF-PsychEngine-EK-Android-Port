@@ -1753,8 +1753,8 @@ class ChartingState extends MusicBeatState
 			}
 
 			#if android
-			var C = _virtualpad.buttonC.justPressed
-			var Z = _virtualpad.buttonZ.justPressed
+			var C = _virtualpad.buttonC.justPressed;
+			var Z = _virtualpad.buttonZ.justPressed;
 
 			if(C && curZoom > 0) {
 				--curZoom;
