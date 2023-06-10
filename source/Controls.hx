@@ -470,6 +470,13 @@ class Controls extends FlxActionSet
 				inline forEachBound(Control.UI_DOWN, (action, state) -> addbuttonUI(action, virtualPad.buttonDown, state));
 				inline forEachBound(Control.UI_LEFT, (action, state) -> addbuttonUI(action, virtualPad.buttonLeft, state));
 				inline forEachBound(Control.UI_RIGHT, (action, state) -> addbuttonUI(action, virtualPad.buttonRight, state));
+			case CHARACTER_EDITOR:
+                inline forEachBound(Control.ACCEPT, (action, state) -> addbuttonUI(action, virtualPad.buttonA, state));
+				inline forEachBound(Control.BACK, (action, state) -> addbuttonUI(action, virtualPad.buttonB, state));
+				inline forEachBound(Control.UI_UP, (action, state) -> addbuttonUI(action, virtualPad.buttonUp, state));
+				inline forEachBound(Control.UI_DOWN, (action, state) -> addbuttonUI(action, virtualPad.buttonDown, state));
+				inline forEachBound(Control.UI_LEFT, (action, state) -> addbuttonUI(action, virtualPad.buttonLeft, state));
+				inline forEachBound(Control.UI_RIGHT, (action, state) -> addbuttonUI(action, virtualPad.buttonRight, state));
 			case NONE:
 		}
 	}
@@ -536,6 +543,13 @@ class Controls extends FlxActionSet
 				inline forEachBound(Control.ACCEPT, (action, state) -> addbuttonNOTES(action, virtualPad.buttonA, state));
 				inline forEachBound(Control.BACK, (action, state) -> addbuttonNOTES(action, virtualPad.buttonB, state));
 			case CHART_EDITOR:
+				inline forEachBound(Control.ACCEPT, (action, state) -> addbuttonNOTES(action, virtualPad.buttonA, state));
+				inline forEachBound(Control.BACK, (action, state) -> addbuttonNOTES(action, virtualPad.buttonB, state));
+				inline forEachBound(Control.NOTE_UP, (action, state) -> addbuttonNOTES(action, virtualPad.buttonUp, state));
+				inline forEachBound(Control.NOTE_DOWN, (action, state) -> addbuttonNOTES(action, virtualPad.buttonDown, state));
+				inline forEachBound(Control.NOTE_LEFT, (action, state) -> addbuttonNOTES(action, virtualPad.buttonLeft, state));
+				inline forEachBound(Control.NOTE_RIGHT, (action, state) -> addbuttonNOTES(action, virtualPad.buttonRight, state));
+			case CHARACTER_EDITOR:
 				inline forEachBound(Control.ACCEPT, (action, state) -> addbuttonNOTES(action, virtualPad.buttonA, state));
 				inline forEachBound(Control.BACK, (action, state) -> addbuttonNOTES(action, virtualPad.buttonB, state));
 				inline forEachBound(Control.NOTE_UP, (action, state) -> addbuttonNOTES(action, virtualPad.buttonUp, state));
