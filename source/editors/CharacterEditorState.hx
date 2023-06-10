@@ -202,7 +202,7 @@ class CharacterEditorState extends MusicBeatState
 		reloadCharacterOptions();
 		
 		#if android
-		addVirtualPad(FULL, FULL);
+		addVirtualPad(FULL, CHARACTER_EDITOR);
 		#end
 
 		super.create();
@@ -1147,20 +1147,20 @@ class CharacterEditorState extends MusicBeatState
 				if(FlxG.camera.zoom < 0.1) FlxG.camera.zoom = 0.1;
 			}
 
-			if (FlxG.keys.pressed.I || FlxG.keys.pressed.J || FlxG.keys.pressed.K || FlxG.keys.pressed.L)
+			if (FlxG.keys.pressed.I #if android || _virtualpad.buttonUp2.pressed #end || FlxG.keys.pressed.J #if android || _virtualpad.buttonLeft2.pressed #end || FlxG.keys.pressed.K #if android || _virtualpad.buttonDown2.pressed #end || FlxG.keys.pressed.L #if android || _virtualpad.buttonRight2.pressed #end)
 			{
 				var addToCam:Float = 500 * elapsed;
 				if (FlxG.keys.pressed.SHIFT)
 					addToCam *= 4;
 
-				if (FlxG.keys.pressed.I)
+				if (FlxG.keys.pressed.I #if android || _virtualpad.buttonUp2.pressed #end)
 					camFollow.y -= addToCam;
-				else if (FlxG.keys.pressed.K)
+				else if (FlxG.keys.pressed.K #if android || _virtualpad.buttonDown2.pressed #end)
 					camFollow.y += addToCam;
 
-				if (FlxG.keys.pressed.J)
+				if (FlxG.keys.pressed.J #if android || _virtualpad.buttonLeft2.pressed #end)
 					camFollow.x -= addToCam;
-				else if (FlxG.keys.pressed.L)
+				else if (FlxG.keys.pressed.L #if android || _virtualpad.buttonRight2.pressed #end)
 					camFollow.x += addToCam;
 			}
 
@@ -1181,7 +1181,7 @@ class CharacterEditorState extends MusicBeatState
 				if (curAnim >= char.animationsArray.length)
 					curAnim = 0;
 
-				if (FlxG.keys.justPressed.S #if android || _virtualpad.buttonD.justPressed #end || FlxG.keys.justPressed.W #if android || _virtualpad.buttonV.justPressed #end || FlxG.keys.justPressed.SPACE)
+				if (FlxG.keys.justPressed.S #if android || _virtualpad.buttonD.justPressed #end || FlxG.keys.justPressed.W #if android || _virtualpad.buttonV.justPressed #end || FlxG.keys.justPressed.SPACE #if android || _virtualpad.buttonC.justPressed #end)
 				{
 					char.playAnim(char.animationsArray[curAnim].anim, true);
 					genBoyOffsets();
