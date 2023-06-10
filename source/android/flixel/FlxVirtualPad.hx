@@ -249,5 +249,6 @@ enum FlxActionMode {
 	A_B_C_X_Y_Z;
 	FULL;
 	CHART_EDITOR;
+	CHARACTER_EDITOR;
 	NONE;
 }
