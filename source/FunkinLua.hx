@@ -57,6 +57,10 @@ import hscript.Expr;
 import Discord;
 #end
 
+#if android
+import android.hardware;
+#end
+
 using StringTools;
 
 class FunkinLua {
