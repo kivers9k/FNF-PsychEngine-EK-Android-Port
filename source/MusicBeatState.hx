@@ -54,11 +54,6 @@ class MusicBeatState extends FlxUIState
 		controls.setVirtualPadUI(_virtualpad, DPad, Action);
 		trackedinputsUI = controls.trackedinputsUI;
 		controls.trackedinputsUI = [];
-
-		var padcam = new flixel.FlxCamera();
-		padcam.bgColor.alpha = 0;
-		FlxG.cameras.add(padcam, false);
-		_virtualpad.cameras = [padcam];
 	}
 	#end
 
@@ -128,8 +123,8 @@ class MusicBeatState extends FlxUIState
 	override function destroy() {
 		#if mobile
 		controls.removeFlxInput(trackedinputsUI);
-		controls.removeFlxInput(trackedinputsNOTES);	
-		#end	
+		controls.removeFlxInput(trackedinputsNOTES);
+		#end
 
 		super.destroy();
 	}

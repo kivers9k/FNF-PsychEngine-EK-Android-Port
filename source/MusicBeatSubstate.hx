@@ -48,11 +48,6 @@ class MusicBeatSubstate extends FlxSubState
 		controls.setVirtualPadUI(_virtualpad, DPad, Action);
 		trackedinputsUI = controls.trackedinputsUI;
 		controls.trackedinputsUI = [];
-
-		var padcam = new flixel.FlxCamera();
-		padcam.bgColor.alpha = 0;
-		FlxG.cameras.add(padcam, false);
-		_virtualpad.cameras = [padcam];
 	}
 	#end
 
@@ -63,20 +58,11 @@ class MusicBeatSubstate extends FlxSubState
 	}
 	#end
 
-	#if mobile
-        public function addPadCamera() {
-		var camcontrol = new flixel.FlxCamera();
-		camcontrol.bgColor.alpha = 0;
-		FlxG.cameras.add(camcontrol, false);
-		_virtualpad.cameras = [camcontrol];
-	}
-	#end
-
 	override function destroy() {
 		#if mobile
 		controls.removeFlxInput(trackedinputsUI);
-		controls.removeFlxInput(trackedinputsNOTES);	
-		#end	
+		controls.removeFlxInput(trackedinputsNOTES);
+		#end
 
 		super.destroy();
 	}
