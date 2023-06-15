@@ -87,7 +87,6 @@ class ControlsSubState extends MusicBeatSubstate {
 		
 		#if android
 		addVirtualPad(FULL, A_B);
-		addPadCamera();
 		#end
 	}
 
