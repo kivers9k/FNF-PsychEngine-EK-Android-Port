@@ -24,7 +24,7 @@ import openfl.display.ShaderParameterType;
  */
 class FlxRuntimeShader extends FlxShader
 {
-    var ver = 140
+    var ver = 140;
 
 	#if FLX_DRAW_QUADS
 	// We need to add stuff from FlxGraphicsShader too!
