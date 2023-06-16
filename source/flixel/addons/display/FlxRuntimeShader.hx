@@ -24,8 +24,6 @@ import openfl.display.ShaderParameterType;
  */
 class FlxRuntimeShader extends FlxShader
 {
-    var ver = 140;
-
 	#if FLX_DRAW_QUADS
 	// We need to add stuff from FlxGraphicsShader too!
 	#else
@@ -198,7 +196,7 @@ class FlxRuntimeShader extends FlxShader
 	 * @param vertexSource The vertex shader source.
 	 * Note you also need to `initialize()` the shader MANUALLY! It can't be done automatically.
 	 */
-	public function new(fragmentSource:String = null, vertexSource:String = null, glslVersion:Int = ver):Void
+	public function new(fragmentSource:String = null, vertexSource:String = null, glslVersion:Int = 140):Void
 	{
     _glslVersion = glslVersion;
 
