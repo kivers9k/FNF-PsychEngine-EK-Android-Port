@@ -61,7 +61,6 @@ import StageData;
 import FunkinLua;
 import DialogueBoxPsych;
 import Conductor.Rating;
-import flixel.system.FlxAssets.FlxShader;
 import android.flixel.FlxHitbox;
 
 #if !flash 
@@ -1423,7 +1422,7 @@ class PlayState extends MusicBeatState
 		#end
 	}
 
-	public function initLuaShader(name:String, ?glslVersion:Int = 100)
+	public function initLuaShader(name:String, ?glslVersion:Int = ver)
 	{
 		if(!ClientPrefs.shaders) return false;
 
