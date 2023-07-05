@@ -2922,6 +2922,11 @@ class PlayState extends MusicBeatState
 		setOnLuas('mania', mania);
 		
 		notes.forEachAlive(function(note:Note) {updateNote(note);});
+		for (noteI in 0...unspawnNotes.length) {
+			var note:Note = unspawnNotes[noteI];
+
+			updateNote(note);
+		}
 
 		callOnLuas('onChangeMania', [mania, daOldMania]);
 
