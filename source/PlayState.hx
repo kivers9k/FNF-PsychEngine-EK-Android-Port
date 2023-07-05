@@ -2883,6 +2883,12 @@ class PlayState extends MusicBeatState
 
 	public function changeMania(newValue:Int, skipStrumFadeOut:Bool = false)
 	{
+		//funny dissapear transitions
+		//while new strums appear
+		var daOldMania = mania;
+				
+		mania = newValue;
+		
 		if (!skipStrumFadeOut) {
 			for (i in 0...strumLineNotes.members.length) {
 				var oldStrum:FlxSprite = strumLineNotes.members[i].clone();
@@ -2910,31 +2916,18 @@ class PlayState extends MusicBeatState
 			#end
 		}
 
-		var ogmania = SONG.mania;
-		mania = newValue;
-
-		SONG.mania = mania;
-
 		playerStrums.clear();
 		opponentStrums.clear();
 		strumLineNotes.clear();
-		//renderedStrumLineNotes.clear();
+		setOnLuas('mania', mania);
+		
+		notes.forEachAlive(function(note:Note) {updateNote(note);});
+
+		callOnLuas('onChangeMania', [mania, daOldMania]);
+
 		generateStaticArrows(0);
 		generateStaticArrows(1);
-		for (i in 0...playerStrums.length) {
-			setOnLuas('defaultPlayerStrumX' + i, playerStrums.members[i].x);
-			setOnLuas('defaultPlayerStrumY' + i, playerStrums.members[i].y);
-		}
-		for (i in 0...opponentStrums.length) {
-			setOnLuas('defaultOpponentStrumX' + i, opponentStrums.members[i].x);
-			setOnLuas('defaultOpponentStrumY' + i, opponentStrums.members[i].y);
-			//if(ClientPrefs.middleScroll) opponentStrums.members[i].visible = false;
-		}
-		//setupBinds();
-
-		//mania = ogmania;
-		SONG.mania = ogmania;
-		//Note.mania = ogmania;
+		updateLuaDefaultPos();
 	}
 
 	override function openSubState(SubState:FlxSubState)
