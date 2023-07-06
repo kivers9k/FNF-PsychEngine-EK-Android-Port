@@ -1,7 +1,7 @@
 
 # This is a basic workflow to help you get started with Actions
 
-name: AndroidBuild
+name: PE Extra Keys Android
 
 # Controls when the action will run. 
 on:
@@ -19,7 +19,7 @@ jobs:
   # This workflow contains a single job called "build"
 
   buildAndroid:
-    name: PE Extra Keys Android
+    name: buildAndroid
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
