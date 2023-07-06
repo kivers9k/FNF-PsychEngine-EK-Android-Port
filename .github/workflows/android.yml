@@ -1,7 +1,7 @@
 
 # This is a basic workflow to help you get started with Actions
 
-name: PE Extra Keys Android
+name: AndroidBuild
 
 # Controls when the action will run. 
 on:
@@ -88,5 +88,5 @@ jobs:
       - name: Publish Artifact
         uses: actions/upload-artifact@main
         with:
-          name: buildAndroid
+          name: PE Extra Keys Android
           path: export/release/android/bin/app/build/outputs/apk/debug
