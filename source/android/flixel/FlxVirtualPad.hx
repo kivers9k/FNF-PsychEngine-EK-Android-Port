@@ -8,6 +8,7 @@ import flixel.util.FlxDestroyUtil;
 import flixel.ui.FlxButton;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.graphics.FlxGraphic;
+import flixel.util.FlxColor;
 
 class FlxVirtualPad extends FlxSpriteGroup {
 	//Actions
@@ -71,6 +72,27 @@ class FlxVirtualPad extends FlxSpriteGroup {
 		buttonRight2 = new FlxButton(0, 0);
 		buttonDown2 = new FlxButton(0, 0);
 
+        //color
+		buttonA = new FlxColor(0xFF0000);
+		buttonB = new FlxColor(0xFFCB00);
+		buttonC = new FlxColor(0x44FF00);
+		buttonD = new FlxColor(0x0078FF);
+		buttonE = new FlxColor(0xFFFFFF);
+		buttonV = new FlxColor(0x49A9B2);
+		buttonX = new FlxColor(0x99062D);
+		buttonY = new FlxColor(0x4A39B9);
+		buttonZ = new FlxColor(0xCCB98E);
+
+		buttonLeft = new FlxColor(0xFF00FF);
+		buttonUp = new FlxColor(0x00FF00);
+		buttonRight = new FlxColor(0xFF0000);
+		buttonDown = new FlxColor(0x00FFFF);
+
+		buttonLeft2 = new FlxColor(0xFF00FF);
+		buttonUp2 = new FlxColor(0x00FF00);
+		buttonRight2 = new FlxColor(0xFF0000);
+		buttonDown2 = new FlxColor(0x00FFFF);
+
 		switch (DPad){
 			case UP_DOWN:
 				dPad.add(add(buttonUp = createButton(0, FlxG.height - 85 * 3, 44 * 3, 45 * 3, "up")));
@@ -114,6 +136,9 @@ class FlxVirtualPad extends FlxSpriteGroup {
 			case A_B:
 				actions.add(add(buttonA = createButton(FlxG.width - 44 * 3, FlxG.height - 45 * 3, 44 * 3, 45 * 3, "a")));
 				actions.add(add(buttonB = createButton(FlxG.width - 86 * 3, FlxG.height - 45 * 3, 44 * 3, 45 * 3, "b")));
+			case B_A
+				actions.add(add(buttonB = createButton(0, FlxG.height - 45 * 3, 44 * 3, 45 * 3, "B")));
+				actions.add(add(buttonA = createButton(44 * 3, FlxG.height - 45 * 3, 44 * 3, 45 * 3, "A")));
 			case A_B_C:
 				actions.add(add(buttonC = createButton(FlxG.width - 128 * 3, FlxG.height - 45 * 3, 44 * 3, 45 * 3, "c")));
 				actions.add(add(buttonB = createButton(FlxG.width - 86 * 3, FlxG.height - 45 * 3, 44 * 3, 45 * 3, "b")));								
@@ -242,6 +267,7 @@ enum FlxActionMode {
 	B;
 	D;
 	A_B;
+	B_A;
 	A_B_C;
 	A_B_E;
 	A_B_X_Y;
