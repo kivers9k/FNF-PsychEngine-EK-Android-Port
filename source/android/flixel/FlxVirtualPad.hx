@@ -73,25 +73,25 @@ class FlxVirtualPad extends FlxSpriteGroup {
 		buttonDown2 = new FlxButton(0, 0);
 
         //color
-		buttonA = new FlxColor(0xFF0000);
-		buttonB = new FlxColor(0xFFCB00);
-		buttonC = new FlxColor(0x44FF00);
-		buttonD = new FlxColor(0x0078FF);
-		buttonE = new FlxColor(0xFFFFFF);
-		buttonV = new FlxColor(0x49A9B2);
-		buttonX = new FlxColor(0x99062D);
-		buttonY = new FlxColor(0x4A39B9);
-		buttonZ = new FlxColor(0xCCB98E);
+		buttonA = new color(0xFF0000);
+		buttonB = new color(0xFFCB00);
+		buttonC = new color(0x44FF00);
+		buttonD = new color(0x0078FF);
+		buttonE = new color(0xFFFFFF);
+		buttonV = new color(0x49A9B2);
+		buttonX = new color(0x99062D);
+		buttonY = new color(0x4A39B9);
+		buttonZ = new color(0xCCB98E);
 
-		buttonLeft = new FlxColor(0xFF00FF);
-		buttonUp = new FlxColor(0x00FF00);
-		buttonRight = new FlxColor(0xFF0000);
-		buttonDown = new FlxColor(0x00FFFF);
+		buttonLeft = new color(0xFF00FF);
+		buttonUp = new color(0x00FF00);
+		buttonRight = new color(0xFF0000);
+		buttonDown = new color(0x00FFFF);
 
-		buttonLeft2 = new FlxColor(0xFF00FF);
-		buttonUp2 = new FlxColor(0x00FF00);
-		buttonRight2 = new FlxColor(0xFF0000);
-		buttonDown2 = new FlxColor(0x00FFFF);
+		buttonLeft2 = new color(0xFF00FF);
+		buttonUp2 = new color(0x00FF00);
+		buttonRight2 = new color(0xFF0000);
+		buttonDown2 = new color(0x00FFFF);
 
 		switch (DPad){
 			case UP_DOWN:
