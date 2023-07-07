@@ -83,6 +83,7 @@ class CreditsState extends MusicBeatState
 		var pisspoop:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
 			['Android Port'],
 		        ['Heropowerbrine','Hero','Porter of this mod(and a bunch of other extra key mods)','https://www.youtube.com/c/Heropowerbrine', 'B9AF27'],
+		        ['Kivers','kivers','Helped with shaders, optimizations and everything else that needed fixing','https://www.youtube.com/channel/UCvCpheMfwNMinm-ucYONImw', 'CF2D2D'],
 		        ['Saw (M.A. Jigsaw)','jigsaw','The og PE EK Android Porter (he is epik)','https://www.youtube.com/channel/UC2Sk7vtPzOvbVzdVTWrribQ', 'FF9E00'],
 		        ['kviks','kviks','OG 13 keys hitbox','https://www.youtube.com/channel/UChPjrBq7z7oSVcB3FcHMDCA', 'B9AF27'],
 		        ['Kaique62','Kaiqueplaceholder','told me how to make the hitboxes previously :)','https://www.youtube.com/channel/UChJrX90urlmG-UYS8QLiY_Q', 'FF9E00'],
