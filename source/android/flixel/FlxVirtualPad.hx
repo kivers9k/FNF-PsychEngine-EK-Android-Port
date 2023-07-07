@@ -72,7 +72,7 @@ class FlxVirtualPad extends FlxSpriteGroup {
 		buttonRight2 = new FlxButton(0, 0);
 		buttonDown2 = new FlxButton(0, 0);
 
-        //color
+        /*color
 		buttonA = button.color(0xFF0000);
 		buttonB = button.color(0xFFCB00);
 		buttonC = button.color(0x44FF00);
@@ -91,7 +91,7 @@ class FlxVirtualPad extends FlxSpriteGroup {
 		buttonLeft2 = button.color(0xFF00FF);
 		buttonUp2 = button.color(0x00FF00);
 		buttonRight2 = button.color(0xFF0000);
-		buttonDown2 = button.color(0x00FFFF);
+		buttonDown2 = button.color(0x00FFFF);*/
 
 		switch (DPad){
 			case UP_DOWN:
