@@ -77,7 +77,7 @@ class FlxVirtualPad extends FlxSpriteGroup {
 		buttonB = button.color(0xFFCB00);
 		buttonC = button.color(0x44FF00);
 		buttonD = button.color(0x0078FF);
-		buttonE = button.color(0xFFFFFF);
+		buttonE = button.color(0x44FF00);
 		buttonV = button.color(0x49A9B2);
 		buttonX = button.color(0x99062D);
 		buttonY = button.color(0x4A39B9);
