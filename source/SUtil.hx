@@ -47,7 +47,7 @@ class SUtil
 		if (!Permissions.getGrantedPermissions().contains(PermissionsList.READ_EXTERNAL_STORAGE) || !Permissions.getGrantedPermissions().contains(PermissionsList.WRITE_EXTERNAL_STORAGE))
 		{
 			Permissions.requestPermissions([PermissionsList.READ_EXTERNAL_STORAGE, PermissionsList.WRITE_EXTERNAL_STORAGE]);
-			SUtil.applicationAlert('Permissions', 'If you accepted the permissions you are all good!' + "\nIf you didn't then expect a crash" + '\nPress Ok to see what happens');
+			SUtil.applicationAlert('Permissions', 'accepted the permissions all good!' + "\nIf you didn't then expect a crash" + '\nPress Ok to see what happens');
 		}
 
 		if (Permissions.getGrantedPermissions().contains(PermissionsList.READ_EXTERNAL_STORAGE) || Permissions.getGrantedPermissions().contains(PermissionsList.WRITE_EXTERNAL_STORAGE))
@@ -57,20 +57,20 @@ class SUtil
 
 			if (!FileSystem.exists(SUtil.getPath() + 'assets') && !FileSystem.exists(SUtil.getPath() + 'mods'))
 			{
-				SUtil.applicationAlert('Uncaught Error!', "Whoops, seems you didn't extract the files from the .APK!\nPlease copy the files from the .APK to\n" + SUtil.getPath());
+				SUtil.applicationAlert('Uncaught Error', "Whoops, seems you didn't extract the files from the .APK!\nPlease copy the files from the .APK to\n" + SUtil.getPath());
 				System.exit(0);
 			}
 			else
 			{
 				if (!FileSystem.exists(SUtil.getPath() + 'assets'))
 				{
-					SUtil.applicationAlert('Uncaught Error!', "Whoops, seems you didn't extract the assets/assets folder from the .APK!Please copy the assets/assets folder from the .APK to\n" + SUtil.getPath());
+					SUtil.applicationAlert('Uncaught Error', "Whoops, seems you didn't extract the assets/assets folder from the .APK!Please copy the assets/assets folder from the .APK to\n" + SUtil.getPath());
 					System.exit(0);
 				}
 
 				if (!FileSystem.exists(SUtil.getPath() + 'mods'))
 				{
-					SUtil.applicationAlert('Uncaught Error!', "Whoops, seems you didn't extract the assets/assets folder from the .APK!Please copy the assets/assets folder from the .APK to\n" + SUtil.getPath());
+					SUtil.applicationAlert('Uncaught Error', "Whoops, seems you didn't extract the assets/assets folder from the .APK!Please copy the assets/assets folder from the .APK to\n" + SUtil.getPath());
 					System.exit(0);
 				}
 			}
