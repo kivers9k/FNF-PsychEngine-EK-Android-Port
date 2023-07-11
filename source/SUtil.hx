@@ -115,7 +115,7 @@ class SUtil
 		Sys.println("Crash dump saved in " + Path.normalize(path));
 		Sys.println("Making a simple alert ...");
 
-		SUtil.applicationAlert("Uncaught Error", errMsg);
+		SUtil.applicationAlert("Uncaught Error!", errMsg);
 		System.exit(0);
 	}
 
@@ -131,13 +131,13 @@ class SUtil
 			FileSystem.createDirectory(SUtil.getPath() + 'saves');
 
 		File.saveContent(SUtil.getPath() + 'saves/' + fileName + fileExtension, fileData);
-		SUtil.applicationAlert('Saved Successfully', 'Done');
+		SUtil.applicationAlert('Saved Successfully!', 'File is in the "saves" folder');
 	}
 
 	public static function saveClipboard(fileData:String = 'you forgot something to add in your code')
 	{
 		openfl.system.System.setClipboard(fileData);
-		SUtil.applicationAlert('Saved Successfully', 'Done');
+		SUtil.applicationAlert('Saved Successfully!', 'Data Saved to Clipboard!');
 	}
 
 	public static function copyContent(copyPath:String, savePath:String)
