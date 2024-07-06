@@ -101,7 +101,7 @@ class FlxHitbox extends FlxSpriteGroup {
 		}
 	}
 
-	public function createhitbox(x:Float = 0, y:Float = 0, width:Int, height:Int, color:Int) {
+	public function createhitbox(x:Float = 0, y:Float = 0, width:Float, height:Float, color:Int) {
 		var gradient:FlxSprite = FlxGradient.createGradientFlxSprite(width, height, [0x00000000, color]);
 		gradient.setPosition(x, y);
 		gradient.alpha = 0;
