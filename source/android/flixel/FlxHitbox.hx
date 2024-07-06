@@ -96,12 +96,12 @@ class FlxHitbox extends FlxSpriteGroup {
 		var keyCount:Int = type + 1;
 		var hitboxWidth:Float = (FlxG.width / keyCount);
 		for (i in 0 ... keyCount) {
-			hitbox.add(createhitbox(hitboxWidth * i, 0, hitboxWidth, FlxG.height, hitboxColor[keyCount][i]));
-			array[i] = hitbox.members[i];
+			array = createhitbox(hitboxWidth * i, 0, hitboxWidth, FlxG.height, hitboxColor[keyCount][i])
+			hitbox.add(array);
 		}
 	}
 
-	public function createhitbox(x:Float = 0, y:Float = 0, width:Float, height:Float, color:Int) {
+	public function createhitbox(x:Float = 0, y:Float = 0, width:Int, height:Int, color:Int) {
 		var gradient:FlxGradient = FlxGradient.createGradientFlxSprite(width, height, [0x00000000, color]);
 		gradient.setPosition(x, y);
 		gradient.alpha = 0;
