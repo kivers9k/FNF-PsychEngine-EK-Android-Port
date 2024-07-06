@@ -10,7 +10,7 @@ import flixel.util.FlxGradient;
 
 class FlxHitbox extends FlxSpriteGroup {
 	public var hitbox:FlxSpriteGroup;
-	public var buttonArray:Array<FlxButton> = [];
+	public var array:Array<FlxButton> = [];
 
 	/*red: 0xffFF0000
 	green: 0xff00FF00
@@ -96,8 +96,8 @@ class FlxHitbox extends FlxSpriteGroup {
 		var keyCount:Int = type + 1;
 		var hitboxWidth:Int = (FlxG.width / keyCount);
 		for (i in 0 ... keyCount) {
-			buttonArray = createhitbox(hitboxWidth * i, 0, hitboxWidth, FlxG.height, hitboxColor[keyCount][i]);
-			hitbox.add(buttonArray);
+			array = createhitbox(hitboxWidth * i, 0, hitboxWidth, FlxG.height, hitboxColor[keyCount][i]);
+			hitbox.add(add(array));
 		}
 	}
 
@@ -122,7 +122,7 @@ class FlxHitbox extends FlxSpriteGroup {
 	override public function destroy():Void
 	{
 		super.destroy();
-		for (hbox in buttonArray) {
+		for (hbox in array) {
 			hbox = null;
 		}
 	}
