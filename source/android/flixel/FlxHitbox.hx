@@ -10,7 +10,7 @@ import flixel.util.FlxGradient;
 
 class FlxHitbox extends FlxSpriteGroup {
 	public var hitbox:FlxSpriteGroup;
-	public var array:Array<FlxButton> = [];
+	public var buttonArray:Array<FlxButton> = [];
 
 	/*red: 0xffFF0000
 	green: 0xff00FF00
@@ -94,15 +94,15 @@ class FlxHitbox extends FlxSpriteGroup {
 		hitbox.scrollFactor.set();
 		
 		var keyCount:Int = type + 1;
-		var hitboxWidth:Float = (FlxG.width / keyCount);
+		var hitboxWidth:Int = (FlxG.width / keyCount);
 		for (i in 0 ... keyCount) {
-			array = createhitbox(hitboxWidth * i, 0, hitboxWidth, FlxG.height, hitboxColor[keyCount][i]);
-			hitbox.add(array);
+			buttonArray = createhitbox(hitboxWidth * i, 0, hitboxWidth, FlxG.height, hitboxColor[keyCount][i]);
+			hitbox.add(buttonArray);
 		}
 	}
 
 	public function createhitbox(x:Float = 0, y:Float = 0, width:Int, height:Int, color:Int) {
-		var gradient:FlxGradient = FlxGradient.createGradientFlxSprite(width, height, [0x00000000, color]);
+		var gradient:FlxSprite = FlxGradient.createGradientFlxSprite(width, height, [0x00000000, color]);
 		gradient.setPosition(x, y);
 		gradient.alpha = 0;
 		add(gradient);
@@ -122,7 +122,7 @@ class FlxHitbox extends FlxSpriteGroup {
 	override public function destroy():Void
 	{
 		super.destroy();
-		for (hbox in hitbox.members) {
+		for (hbox in buttonArray) {
 			hbox = null;
 		}
 	}
