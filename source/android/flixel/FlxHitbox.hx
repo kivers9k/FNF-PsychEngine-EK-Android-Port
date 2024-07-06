@@ -94,10 +94,10 @@ class FlxHitbox extends FlxSpriteGroup {
 		hitbox.scrollFactor.set();
 		
 		var keyCount:Int = type + 1;
-		var hitboxWidth:Int = (FlxG.width / keyCount);
+		var hitboxWidth:Float = (Math.floor(FlxG.width) / keyCount);
 		for (i in 0 ... keyCount) {
-			array = createhitbox(hitboxWidth * i, 0, hitboxWidth, FlxG.height, hitboxColor[keyCount][i]);
-			hitbox.add(add(array));
+			array[i] = createhitbox(hitboxWidth * i, 0, hitboxWidth, FlxG.height, hitboxColor[keyCount][i]);
+			hitbox.add(array[i]);
 		}
 	}
 
