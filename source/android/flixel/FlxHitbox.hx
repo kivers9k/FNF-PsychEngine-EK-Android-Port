@@ -1,18 +1,19 @@
 package android.flixel;
 
 import flixel.graphics.frames.FlxAtlasFrames;
+import flixel.util.FlxGradient;
 import flixel.graphics.FlxGraphic;
 import flixel.group.FlxSpriteGroup;
 import flixel.ui.FlxButton;
 import flixel.FlxSprite;
 import flixel.FlxG;
-import flixel.util.FlxGradient;
 
 class FlxHitbox extends FlxSpriteGroup {
 	public var hitbox:FlxSpriteGroup;
 	public var array:Array<FlxButton> = [];
 
-	/*red: 0xffFF0000
+	/*
+	red: 0xffFF0000
 	green: 0xff00FF00
 	cyan: 0xff00EDFF
 	pink: 0xffE390E6
@@ -20,7 +21,8 @@ class FlxHitbox extends FlxSpriteGroup {
 	yellow: 0xffFFFF00
 	blue: 0xff0000FF
 	purple: 0xffBB00FF
-	darkRed: 0xffFF0000*/
+	darkRed: 0xffFF0000
+	*/
 
 	var hitboxColor:Map<Int, Array<Int>> = [
 		1 => [
@@ -96,22 +98,23 @@ class FlxHitbox extends FlxSpriteGroup {
 		var keyCount:Int = type + 1;
 		var hitboxWidth:Int = Math.floor(FlxG.width / keyCount);
 		for (i in 0 ... keyCount) {
-			array[i] = createhitbox(hitboxWidth * i, 0, hitboxWidth, FlxG.height, hitboxColor[keyCount][i]);
-			hitbox.add(array[i]);
+			hitbox.add(array[i] = createhitbox(hitboxWidth * i, 0, hitboxWidth, FlxG.height, hitboxColor[keyCount][i]));
 		}
 	}
 
 	public function createhitbox(x:Float = 0, y:Float = 0, width:Int, height:Int, color:Int) {
-		var gradient:FlxSprite = FlxGradient.createGradientFlxSprite(width, height, [0x00000000, color]);
-		gradient.setPosition(x, y);
-		gradient.alpha = 0;
-		add(gradient);
-	
 		var button:FlxButton = new FlxButton(x, y);
 		button.setGraphicSize(width, height);
+		button.scrollFactor.set();
 		button.alpha = 0;
 		button.updateHitbox();
-	
+
+		var gradient:FlxSprite = FlxGradient.createGradientFlxSprite(width, height, [0x00000000, color]);
+		gradient.setPosition(x, y);
+		gradient.scrollFactor.set();
+		gradient.alpha = 0;
+		add(gradient);
+
 		button.onOut.callback = function() gradient.alpha = 0;
 		button.onUp.callback = function() gradient.alpha = 0;
 		button.onDown.callback = function() gradient.alpha = 0.5;
