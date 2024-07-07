@@ -98,7 +98,7 @@ class FlxHitbox extends FlxSpriteGroup {
 		var keyCount:Int = type + 1;
 		var hitboxWidth:Int = Math.floor(FlxG.width / keyCount);
 		for (i in 0 ... keyCount) {
-			hitbox.add(array[i] = createhitbox(hitboxWidth * i, 0, hitboxWidth, FlxG.height, hitboxColor[keyCount][i]));
+			hitbox.add(add(array[i] = createhitbox(hitboxWidth * i, 0, hitboxWidth, FlxG.height, hitboxColor[keyCount][i])));
 		}
 	}
 
@@ -122,8 +122,7 @@ class FlxHitbox extends FlxSpriteGroup {
 		return button;
 	}
 
-	override public function destroy():Void
-	{
+	override public function destroy():Void {
 		super.destroy();
 		for (hbox in array) {
 			hbox = null;
