@@ -10,7 +10,7 @@ import flixel.FlxG;
 
 class FlxHitbox extends FlxSpriteGroup {
 	public var hitbox:FlxSpriteGroup;
-	public var array:Array<FlxButton>;
+	public var array:Array<FlxButton> = [];
 
 	var hitboxColor:Map<Int, Array<Int>> = [
 		1 => [0xffFFFFFF],
