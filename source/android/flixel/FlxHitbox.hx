@@ -46,21 +46,16 @@ class FlxHitbox extends FlxSpriteGroup {
 	}
 
 	public function createhitbox(x:Float = 0, y:Float = 0, width:Int, height:Int, color:Int) {
+		var hitboxSpr:FlxSprite = FlxGradient.createGradientFlxSprite(width, height, [0x0, color]);
+
 		var button:FlxButton = new FlxButton(x, y);
-		button.setGraphicSize(width, height);
+		button.loadGraphic(hitboxSpr.pixels);
 		button.scrollFactor.set();
 		button.alpha = 0;
-		button.updateHitbox();
 
-		var gradient:FlxSprite = FlxGradient.createGradientFlxSprite(width, height, [0x00000000, color]);
-		gradient.setPosition(x, y);
-		gradient.scrollFactor.set();
-		gradient.alpha = 0;
-		add(gradient);
-
-		button.onOut.callback = function() gradient.alpha = 0;
-		button.onUp.callback = function() gradient.alpha = 0;
-		button.onDown.callback = function() gradient.alpha = 0.5;
+		button.onOut.callback = function() button.alpha = 0;
+		button.onUp.callback = function() button.alpha = 0;
+		button.onDown.callback = function() button.alpha = 0.5;
 		
 		return button;
 	}
