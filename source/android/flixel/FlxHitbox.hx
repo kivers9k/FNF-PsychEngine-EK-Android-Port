@@ -50,7 +50,7 @@ class FlxHitbox extends FlxSpriteGroup {
 
 		var button:FlxButton = new FlxButton(x, y);
 		button.loadGraphic(hitboxSpr.pixels);
-		button.scrollFactor.set();
+		button.updateHitbox();
 		button.alpha = 0;
 
 		button.onOut.callback = function() button.alpha = 0;
