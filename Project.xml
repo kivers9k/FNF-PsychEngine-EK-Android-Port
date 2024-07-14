@@ -187,8 +187,12 @@
 	<haxedef name="HXCPP_STACK_LINE" if="CRASH_HANDLER" />
 
 	<!-- _________________________________ Android Stuff _______________________________ -->
-	<config:android permission="android.permission.READ_EXTERNAL_STORAGE" if="android"/>
-	<config:android permission="android.permission.WRITE_EXTERNAL_STORAGE" if="android"/>
+	<section if="android"/>
+	    <android target-sdk-verion="31"/>
+
+	    <config:android permission="android.permission.READ_EXTERNAL_STORAGE"/>
+	    <config:android permission="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <section/>
 
 	<!-- _________________________________ Custom _______________________________ -->
 
