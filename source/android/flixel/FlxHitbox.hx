@@ -1,8 +1,6 @@
 package android.flixel;
 
-import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.util.FlxGradient;
-import flixel.graphics.FlxGraphic;
 import flixel.group.FlxSpriteGroup;
 import flixel.ui.FlxButton;
 import flixel.FlxSprite;
